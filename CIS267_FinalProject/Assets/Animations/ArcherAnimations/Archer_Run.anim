@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ARun_Animation
+  m_Name: Archer_Run
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -35,11 +35,13 @@ AnimationClip:
       value: {fileID: 2872329259373745873, guid: 47e47cf7a9f570a4a97ef974557c10b6, type: 3}
     - time: 0.5833333
       value: {fileID: -4445661109594356626, guid: 47e47cf7a9f570a4a97ef974557c10b6, type: 3}
+    - time: 0.65
+      value: {fileID: -2059313341184450652, guid: 47e47cf7a9f570a4a97ef974557c10b6, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -62,6 +64,7 @@ AnimationClip:
     - {fileID: 7017127527191711373, guid: 47e47cf7a9f570a4a97ef974557c10b6, type: 3}
     - {fileID: 2872329259373745873, guid: 47e47cf7a9f570a4a97ef974557c10b6, type: 3}
     - {fileID: -4445661109594356626, guid: 47e47cf7a9f570a4a97ef974557c10b6, type: 3}
+    - {fileID: -2059313341184450652, guid: 47e47cf7a9f570a4a97ef974557c10b6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
