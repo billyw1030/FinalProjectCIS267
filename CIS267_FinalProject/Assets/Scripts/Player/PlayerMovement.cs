@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,10 +13,13 @@ public class PlayerMovement : MonoBehaviour
     public string midJump = "n";
     private Animator playerSpriteAnimator;
 
+    bool isFacingRight;
+
     void Start()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerSpriteAnimator = this.gameObject.transform.GetChild(0).GetComponent<Animator>();
+        isFacingRight = true; //Watch Out!
     }
 
     void Update()
@@ -32,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
         flipPlayer(moveHorizontal);
 
+        //Animations
         if(moveHorizontal != 0)
         {
             playerSpriteAnimator.SetBool("isRunning", true);
@@ -48,10 +53,12 @@ public class PlayerMovement : MonoBehaviour
         if(input > 0)
         {
             playerRigidBody.transform.localScale = new Vector3(1,1,1);
+            isFacingRight = true;
         }
         else if(input < 0)
         {
             playerRigidBody.transform.localScale = new Vector3(-1, 1, 1);
+            isFacingRight = false;
         }
     }
 
@@ -76,5 +83,10 @@ public class PlayerMovement : MonoBehaviour
         //    //Debug.Log("OB");
         //    SceneManager.LoadScene("SampleScene");
         //}
+    }
+
+    public bool getIsFacingRight()
+    {
+        return isFacingRight;
     }
 }
