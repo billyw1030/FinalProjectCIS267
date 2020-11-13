@@ -10,10 +10,12 @@ public class PlayerMovement : MonoBehaviour
     private float moveHorizontal;
     public float jumpForce;
     public string midJump = "n";
+    private Animator playerSpriteAnimator;
 
     void Start()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
+        playerSpriteAnimator = this.gameObject.transform.GetChild(0).GetComponent<Animator>();
     }
 
     void Update()
@@ -29,6 +31,16 @@ public class PlayerMovement : MonoBehaviour
         playerRigidBody.velocity = new Vector2(movementSpeed * moveHorizontal, playerRigidBody.velocity.y);
 
         flipPlayer(moveHorizontal);
+
+        if(moveHorizontal != 0)
+        {
+            playerSpriteAnimator.SetBool("isRunning", true);
+
+        }
+        else
+        {
+            playerSpriteAnimator.SetBool("isRunning", false);
+        }
     }
 
     private void flipPlayer(float input)
