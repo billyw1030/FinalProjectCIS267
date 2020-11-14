@@ -57,12 +57,12 @@ public class PlayerShoot : MonoBehaviour
                
                 if (playerMovementScript.getIsFacingRight())
                 {
-                    currentArrow.transform.position = new Vector3(this.gameObject.transform.position.x + 0.5f, this.gameObject.transform.position.y + 0.15f);
+                    currentArrow.transform.position = new Vector3(this.gameObject.transform.position.x + 0.5f/5, this.gameObject.transform.position.y + 0.15f/5);
                     currentArrow.GetComponent<Rigidbody2D>().velocity = new Vector3(arrowVelocity, 0, 0);
                 }
                 else
                 {
-                    currentArrow.transform.position = new Vector3(this.gameObject.transform.position.x - 0.5f, this.gameObject.transform.position.y + 0.15f);
+                    currentArrow.transform.position = new Vector3(this.gameObject.transform.position.x - 0.5f/5, this.gameObject.transform.position.y + 0.15f/5);
                     currentArrow.transform.localScale = new Vector3(-currentArrow.transform.localScale.x, currentArrow.transform.localScale.y, currentArrow.transform.localScale.z);
                     currentArrow.GetComponent<Rigidbody2D>().velocity = new Vector3(-arrowVelocity, 0, 0);
                 }
