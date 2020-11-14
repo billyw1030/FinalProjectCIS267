@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void jump()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow) && midJump == "n")
+        if(Input.GetKeyDown(KeyCode.Space) && midJump == "n")
         {
             playerRigidBody.velocity = new Vector2(0, jumpForce);
             midJump = "y";
