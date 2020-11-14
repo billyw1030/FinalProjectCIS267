@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PitWall
   - Arrow
+  - Ground
   layers:
   - Default
   - TransparentFX
