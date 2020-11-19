@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Door
   - Key
+  - Rope
   layers:
   - Default
   - TransparentFX
