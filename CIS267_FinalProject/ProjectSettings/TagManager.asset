@@ -12,6 +12,9 @@ TagManager:
   - Rope
   - FallingTree
   - Target
+  - Wall
+  - Platform
+  - PlatformArrow
   layers:
   - Default
   - TransparentFX
