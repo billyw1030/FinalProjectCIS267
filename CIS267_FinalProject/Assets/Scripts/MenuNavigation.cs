@@ -18,6 +18,7 @@ public class MenuNavigation : MonoBehaviour
     }
     public void loadGame()
     {
+        DontDestroyOnLoad(GameObject.Find("GameManager"));
         SceneManager.LoadScene("Level1");
         //Debug.Log("ButtonClicked");
     }

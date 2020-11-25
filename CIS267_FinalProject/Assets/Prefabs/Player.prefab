@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 8166751450300633077}
   - component: {fileID: 8166751450300633075}
   - component: {fileID: 8166751450300633074}
+  - component: {fileID: 7660613254899791766}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -214,3 +215,15 @@ MonoBehaviour:
   basicArrow: {fileID: 9045424102586928863, guid: 2c1df46fbbd214f49a615d5e5ad2b242, type: 3}
   arrowVelocity: 10
   shootingDelay: 0.8
+--- !u!114 &7660613254899791766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166751450300633079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9294ecea45636b34194dc8a5edc60aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

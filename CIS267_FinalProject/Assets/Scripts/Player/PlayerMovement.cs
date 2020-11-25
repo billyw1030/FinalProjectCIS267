@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public string midJump = "n";
     private Animator playerSpriteAnimator;
-    private bool keyObtained = false;
 
     bool isFacingRight;
 
@@ -75,21 +74,6 @@ public class PlayerMovement : MonoBehaviour
             midJump = "n";
         }
 
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.CompareTag("Key"))
-        {
-            keyObtained = true;
-            Debug.Log("Key Obtained");
-            Destroy(GameObject.Find("Key"));
-        }
-        //if (other.gameObject.CompareTag("OutOfBounds"))
-        //{
-        //    //Debug.Log("OB");
-        //    SceneManager.LoadScene("SampleScene");
-        //}
     }
 
     public bool getIsFacingRight()
