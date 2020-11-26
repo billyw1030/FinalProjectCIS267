@@ -24,8 +24,6 @@ public class FinalPlayerMovement : MonoBehaviour
     //Key Codes
     KeyCode jumpKey = KeyCode.Space;
 
-    //Player Info
-    float halfPlayer = 0.22f; //How tall the player is above platform
 
     void Start()
     {

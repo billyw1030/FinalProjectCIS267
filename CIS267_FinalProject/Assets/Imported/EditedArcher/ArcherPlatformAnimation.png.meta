@@ -1,0 +1,457 @@
+fileFormatVersion: 2
+guid: 4b4a73b9ad33e4445a0874a753f3dff6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 604812159061652246
+    second: ArcherPlatformAnimation_0
+  - first:
+      213: -5569681818913029053
+    second: ArcherPlatformAnimation_1
+  - first:
+      213: 4617448623337843268
+    second: ArcherPlatformAnimation_2
+  - first:
+      213: 7402036291918797282
+    second: ArcherPlatformAnimation_3
+  - first:
+      213: -566557534868500059
+    second: ArcherPlatformAnimation_4
+  - first:
+      213: 4527218938178520919
+    second: ArcherPlatformAnimation_5
+  - first:
+      213: 6265348853019044986
+    second: ArcherPlatformAnimation_6
+  - first:
+      213: 5606923205956425336
+    second: ArcherPlatformAnimation_7
+  - first:
+      213: 5270171048540138525
+    second: ArcherPlatformAnimation_8
+  - first:
+      213: -8920112649774716870
+    second: ArcherPlatformAnimation_9
+  - first:
+      213: 8543782400985040688
+    second: ArcherPlatformAnimation_10
+  - first:
+      213: 298995761609153992
+    second: ArcherPlatformAnimation_11
+  - first:
+      213: 7636859653061529176
+    second: ArcherPlatformAnimation_12
+  - first:
+      213: 3668664398807895058
+    second: ArcherPlatformAnimation_13
+  - first:
+      213: 7605592733582513381
+    second: ArcherPlatformAnimation_14
+  - first:
+      213: -766919750223645688
+    second: ArcherPlatformAnimation_15
+  - first:
+      213: 1272165245254153048
+    second: ArcherPlatformAnimation_16
+  - first:
+      213: -6730363505335665427
+    second: ArcherPlatformAnimation_17
+  - first:
+      213: 1984094553360026955
+    second: ArcherPlatformAnimation_18
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 51
+        width: 27
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613f4b84479b46800800000000000000
+      internalID: 604812159061652246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 51
+        width: 29
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 344ccb725e384b2b0800000000000000
+      internalID: -5569681818913029053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 51
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a2ba20f09741040800000000000000
+      internalID: 4617448623337843268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 51
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e99e523ac059b660800000000000000
+      internalID: 7402036291918797282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 51
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a1975d7cee2328f0800000000000000
+      internalID: -566557534868500059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 51
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7574d8653a9e3de30800000000000000
+      internalID: 4527218938178520919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 51
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7ce91a269df2f650800000000000000
+      internalID: 6265348853019044986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 51
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8765de5f2facfcd40800000000000000
+      internalID: 5606923205956425336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 1487
+        y: 51
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c68c565a8632940800000000000000
+      internalID: 5270171048540138525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 51
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38a5b94ec4653480800000000000000
+      internalID: -8920112649774716870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_11
+      rect:
+        serializedVersion: 2
+        x: 1845
+        y: 51
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cd9f00af0f362400800000000000000
+      internalID: 298995761609153992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_13
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 51
+        width: 29
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21c011355d6b9e230800000000000000
+      internalID: 3668664398807895058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_15
+      rect:
+        serializedVersion: 2
+        x: 2204
+        y: 51
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80430bcec8a5b55f0800000000000000
+      internalID: -766919750223645688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherPlatformAnimation_17
+      rect:
+        serializedVersion: 2
+        x: 2385
+        y: 51
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: decf6370d02f892a0800000000000000
+      internalID: -6730363505335665427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

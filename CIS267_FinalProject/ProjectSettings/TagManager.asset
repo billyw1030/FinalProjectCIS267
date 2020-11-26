@@ -16,6 +16,9 @@ TagManager:
   - PlatformArrow
   - Gate
   - FireArrow
+  - ZiplineArrow
+  - MagicPlatform
+  - BlastZone
   layers:
   - Default
   - TransparentFX

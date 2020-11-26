@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7514061927873901026}
   - component: {fileID: 7084564147644119894}
   - component: {fileID: 5954541127526287052}
+  - component: {fileID: -738320233489214834}
   m_Layer: 0
-  m_Name: VeryBlurryArrow
-  m_TagString: PlatformArrow
+  m_Name: BasicArrow
+  m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 9045424102586928863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0.15, z: -5}
-  m_LocalScale: {x: 0.6, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1773dac71b7b18f488df3088a19a9f9b, type: 3}
+  m_Sprite: {fileID: -7686485941099699187, guid: 45818133f0e22d142be6680e1e761cef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.25, y: 0.03}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -97,18 +98,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0053696893}
+  m_Offset: {x: 0.00044310093, y: 0.00037783384}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.25, y: 0.03}
+    newSize: {x: 0.25, y: 0.03}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.05968088}
+  m_Size: {x: 0.25038588, y: 0.033360183}
   m_EdgeRadius: 0
 --- !u!50 &5954541127526287052
 Rigidbody2D:
@@ -131,3 +132,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 6
+--- !u!114 &-738320233489214834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9045424102586928863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368091c8d6336fc40aad41c147a4af50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.1

@@ -5,17 +5,46 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     public GameObject basicArrow;
+    public GameObject platformArrow;
+    public GameObject ziplineArrow;
+    public GameObject fireArrow;
+
     public float arrowVelocity;
     public float shootingDelay;
+    public float animationLength;
 
 
     private Rigidbody2D playerRigidBody;
+
+    //This is the current arrow being fired
     private GameObject currentArrow;
+
+    //This is the current arrow type selected
+    private GameObject selectedArrow;
+
+
     private Animator playerSpriteAnimator;
     private FinalPlayerMovement playerMovementScript;
 
     private float arrowTimer;
-    bool shooting;
+    private bool shooting;
+    private bool arrowFired;
+
+    private bool unlockedPlatformArrows;
+    private bool unlockedZiplineArrows;
+    private bool unlockedFireArrows;
+
+
+    //Keycodes
+    KeyCode shootKey = KeyCode.Z;
+
+    KeyCode basicKey = KeyCode.Alpha1;
+    KeyCode platformKey = KeyCode.Alpha2;
+    KeyCode ziplineKey = KeyCode.Alpha3;
+    KeyCode fireKey = KeyCode.Alpha4;
+
+    KeyCode leftCycle = KeyCode.LeftShift;
+    KeyCode rightCycle = KeyCode.X;
 
     // Start is called before the first frame update
     void Start()
@@ -25,17 +54,26 @@ public class PlayerShoot : MonoBehaviour
         playerSpriteAnimator = this.gameObject.transform.GetChild(0).GetComponent<Animator>();
         arrowTimer = 0;
         shooting = false;
+        arrowFired = false;
+        selectedArrow = basicArrow;
+
+        //----------------TEMP----------------
+         unlockedPlatformArrows = true;
+         unlockedZiplineArrows = false;
+         unlockedFireArrows = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         shoot();
+        swapArrow();
     }
 
     private void shoot()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKey(shootKey))
         {
             if (shooting == false)
             {
@@ -53,29 +91,188 @@ public class PlayerShoot : MonoBehaviour
 
             if(arrowTimer >= shootingDelay)
             {
-                currentArrow = Instantiate(basicArrow);
-               
-                if (playerMovementScript.getIsFacingRight())
+                if (arrowFired == false)
                 {
-                    currentArrow.transform.position = new Vector3(this.gameObject.transform.position.x + 0.5f/5, this.gameObject.transform.position.y + 0.15f/5);
-                    currentArrow.GetComponent<Rigidbody2D>().velocity = new Vector3(arrowVelocity, 0, 0);
+                    currentArrow = Instantiate(selectedArrow);
+                    
+                    if (playerMovementScript.getIsFacingRight())
+                    {
+                        currentArrow.transform.position = new Vector3(this.gameObject.transform.position.x + 0.5f / 5, this.gameObject.transform.position.y + 0.15f / 5);
+                        currentArrow.GetComponent<Rigidbody2D>().velocity = new Vector3(arrowVelocity, 0, 0);
+                    }
+                    else
+                    {
+                        currentArrow.transform.position = new Vector3(this.gameObject.transform.position.x - 0.5f / 5, this.gameObject.transform.position.y + 0.15f / 5);
+                        currentArrow.transform.localScale = new Vector3(-currentArrow.transform.localScale.x, currentArrow.transform.localScale.y, currentArrow.transform.localScale.z);
+                        currentArrow.GetComponent<Rigidbody2D>().velocity = new Vector3(-arrowVelocity, 0, 0);
+                    }
+                    
+                    arrowFired = true;
                 }
                 else
                 {
-                    currentArrow.transform.position = new Vector3(this.gameObject.transform.position.x - 0.5f/5, this.gameObject.transform.position.y + 0.15f/5);
-                    currentArrow.transform.localScale = new Vector3(-currentArrow.transform.localScale.x, currentArrow.transform.localScale.y, currentArrow.transform.localScale.z);
-                    currentArrow.GetComponent<Rigidbody2D>().velocity = new Vector3(-arrowVelocity, 0, 0);
-                }
+                    //This section finishes the animation
 
-                playerSpriteAnimator.SetBool("isShooting", false);
-                shooting = false;
-                arrowTimer = 0;
+                    if (arrowTimer >= animationLength)
+                    { 
+                        playerSpriteAnimator.SetBool("isShooting", false);
+                        shooting = false;
+                        arrowFired = false;
+                        arrowTimer = 0;
+                    }
+                }
             }
         }
     }
 
-    private void fireArrow()
+    private void swapArrow()
     {
+        if(Input.GetKeyDown(basicKey))
+        {
+            selectedArrow = basicArrow;
+        }
+        else if(Input.GetKeyDown(platformKey) && unlockedPlatformArrows)
+        {
+            selectedArrow = platformArrow;
+        }
+        else if(Input.GetKeyDown(ziplineKey) && unlockedPlatformArrows)
+        {
+            selectedArrow = ziplineArrow;
+        }
+        else if(Input.GetKeyDown(fireKey) && unlockedFireArrows)
+        {
+            selectedArrow = fireArrow;
+        }
+        else if(Input.GetKeyDown(leftCycle))
+        {
+            if(selectedArrow == basicArrow)
+            {
+                if(unlockedFireArrows)
+                {
+                    selectedArrow = fireArrow;
+                }
+                else if(unlockedZiplineArrows)
+                {
+                    selectedArrow = ziplineArrow;
+                }
+                else if(unlockedPlatformArrows)
+                {
+                    selectedArrow = platformArrow;
+                }
+                //Stays the same if else
+            }
+            else if (selectedArrow == platformArrow)
+            {
+                //Will always cycle to basic arrow
+                selectedArrow = basicArrow;
+            }
+            else if (selectedArrow == ziplineArrow)
+            {
+                //Really don't need these but you never know
+                if (unlockedPlatformArrows)
+                {
+                    selectedArrow = platformArrow;
+                }
+                else
+                {
+                    selectedArrow = basicArrow;
+                }
+            }
+            else if (selectedArrow == fireArrow)
+            {
+                if (unlockedZiplineArrows)
+                {
+                    selectedArrow = ziplineArrow;
+                }
+                else if (unlockedPlatformArrows)
+                {
+                    selectedArrow = platformArrow;
+                }
+                else
+                {
+                    selectedArrow = basicArrow;
+                }
+            }
+        }
+        else if(Input.GetKeyDown(rightCycle))
+        {
+            if(selectedArrow == basicArrow)
+            {
 
+                if (unlockedPlatformArrows)
+                {
+                    selectedArrow = platformArrow;
+                }
+                else if (unlockedZiplineArrows)
+                {
+                    selectedArrow = ziplineArrow;
+                }
+                else if (unlockedFireArrows)
+                {
+                    selectedArrow = fireArrow;
+                }
+
+            }
+            else if (selectedArrow == platformArrow)
+            {
+                if(unlockedZiplineArrows)
+                {
+                    selectedArrow = ziplineArrow;
+                }
+                else if (unlockedFireArrows)
+                {
+                    selectedArrow = fireArrow;
+                }
+                else
+                {
+                    selectedArrow = basicArrow;
+                }
+            }
+            else if (selectedArrow == ziplineArrow)
+            {
+                if(unlockedFireArrows)
+                {
+                    selectedArrow = fireArrow;
+                }
+                else
+                {
+                    selectedArrow = basicArrow;
+                }
+            }
+            else if (selectedArrow == fireArrow)
+            {
+                //Will always cycle to basic arrow
+                selectedArrow = basicArrow;
+            }
+        }
+
+
+
+        //Animation Variables
+        if(selectedArrow == basicArrow)
+        {
+            playerSpriteAnimator.SetBool("hasPlatform", false);
+            playerSpriteAnimator.SetBool("hasZipline", false);
+            playerSpriteAnimator.SetBool("hasFire", false);
+        }
+        else if (selectedArrow == platformArrow)
+        {
+            playerSpriteAnimator.SetBool("hasPlatform", true);
+            playerSpriteAnimator.SetBool("hasZipline", false);
+            playerSpriteAnimator.SetBool("hasFire", false);
+        }
+        else if (selectedArrow == ziplineArrow)
+        {
+            //Currently Not Set Up!
+            playerSpriteAnimator.SetBool("hasPlatform", false);
+            playerSpriteAnimator.SetBool("hasZipline", false);
+            playerSpriteAnimator.SetBool("hasFire", false);
+        }
+        else if (selectedArrow == fireArrow)
+        {
+            playerSpriteAnimator.SetBool("hasPlatform", false);
+            playerSpriteAnimator.SetBool("hasZipline", false);
+            playerSpriteAnimator.SetBool("hasFire", true);
+        }
     }
 }
