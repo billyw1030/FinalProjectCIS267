@@ -19,6 +19,9 @@ TagManager:
   - ZiplineArrow
   - MagicPlatform
   - BlastZone
+  - Box
+  - Sheild Enemy
+  - endline
   layers:
   - Default
   - TransparentFX

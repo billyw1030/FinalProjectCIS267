@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6556956235806267571
+--- !u!1 &2728998270602944868
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1535964639099728988}
-  - component: {fileID: 5710140174676354958}
-  - component: {fileID: 4983334356005891386}
-  - component: {fileID: 8492652157971468448}
-  - component: {fileID: -7927072337543193440}
+  - component: {fileID: 2728998270602944871}
+  - component: {fileID: 2728998270602944873}
+  - component: {fileID: 2728998270602944870}
   m_Layer: 0
-  m_Name: ZiplineArrow
-  m_TagString: ZiplineArrow
+  m_Name: chain
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1535964639099728988
+--- !u!4 &2728998270602944871
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6556956235806267571}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6070802, y: -0.57708925, z: -5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 2728998270602944868}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.52895, y: -0.49673, z: 161.63531}
+  m_LocalScale: {x: 0.40376765, y: 0.7263066, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5710140174676354958
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!212 &2728998270602944873
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6556956235806267571}
+  m_GameObject: {fileID: 2728998270602944868}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,78 +72,62 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7686485941099699187, guid: 45818133f0e22d142be6680e1e761cef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a0827e19b5a4484f86d780c736d0dfd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.25, y: 0.03}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4983334356005891386
-BoxCollider2D:
+--- !u!60 &2728998270602944870
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6556956235806267571}
+  m_GameObject: {fileID: 2728998270602944868}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00044310093, y: 0.00037783384}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.03}
-    newSize: {x: 0.25, y: 0.03}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.25038588, y: 0.033360183}
-  m_EdgeRadius: 0
---- !u!50 &8492652157971468448
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6556956235806267571}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 6
---- !u!114 &-7927072337543193440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6556956235806267571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8d2d9d9dc396204abff01488ad6ea87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chain: {fileID: 2728998270602944868, guid: f6d6c169a38c6b04d89c345cb5ce29b1, type: 3}
-  arrow: {fileID: 6556956235806267571}
-  clock: 0
-  startcount: 0
-  waitTime: 5
+  m_Points:
+    m_Paths:
+    - - {x: -0.044499453, y: 0.07940347}
+      - {x: -0.044359963, y: 0.058209922}
+      - {x: -0.025006577, y: 0.04360917}
+      - {x: -0.023731276, y: 0.036158588}
+      - {x: -0.04390292, y: 0.018413099}
+      - {x: -0.045018245, y: -0.0236611}
+      - {x: -0.024335677, y: -0.03718277}
+      - {x: -0.024726206, y: -0.0450482}
+      - {x: -0.043025073, y: -0.06079002}
+      - {x: -0.044499453, y: -0.08059652}
+      - {x: -0.042347487, y: -0.081226304}
+      - {x: -0.009225429, y: -0.08084675}
+      - {x: 0.018758595, y: -0.08052642}
+      - {x: 0.044691734, y: -0.08105895}
+      - {x: 0.0427708, y: -0.059694737}
+      - {x: 0.02201885, y: -0.044777364}
+      - {x: 0.022431552, y: -0.03341672}
+      - {x: 0.042984426, y: -0.01975486}
+      - {x: 0.043429557, y: 0.021413824}
+      - {x: 0.022061536, y: 0.03570988}
+      - {x: 0.021203468, y: 0.044174694}
+      - {x: 0.041844793, y: 0.060834423}
+      - {x: 0.04379803, y: 0.07943972}
