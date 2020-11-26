@@ -18,11 +18,11 @@ public class PlatformArrow : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D platformArrowCollision)
     {
-        if (gameObject.CompareTag("Wall") || gameObject.CompareTag("Platform") || gameObject.CompareTag("Ground"))
+        if (platformArrowCollision.gameObject.CompareTag("Wall") || platformArrowCollision.gameObject.CompareTag("Platform") || platformArrowCollision.gameObject.CompareTag("Ground"))
         {
-            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+            this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
         }
-        else if(gameObject.CompareTag("Player"))
+        else if(platformArrowCollision.gameObject.CompareTag("Player"))
         {
             //do nothing
         }
