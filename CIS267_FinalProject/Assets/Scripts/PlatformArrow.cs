@@ -22,7 +22,11 @@ public class PlatformArrow : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
         }
-        else
+        else if(gameObject.CompareTag("Player"))
+        {
+            //do nothing
+        }
+        else 
         {
             Destroy(this.gameObject);
         }
