@@ -15,6 +15,7 @@ TagManager:
   - Platform
   - PlatformArrow
   - Gate
+  - FireArrow
   layers:
   - Default
   - TransparentFX

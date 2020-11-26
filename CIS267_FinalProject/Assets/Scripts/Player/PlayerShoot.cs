@@ -12,7 +12,7 @@ public class PlayerShoot : MonoBehaviour
     private Rigidbody2D playerRigidBody;
     private GameObject currentArrow;
     private Animator playerSpriteAnimator;
-    private PlayerMovement playerMovementScript;
+    private FinalPlayerMovement playerMovementScript;
 
     private float arrowTimer;
     bool shooting;
@@ -21,7 +21,7 @@ public class PlayerShoot : MonoBehaviour
     void Start()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
-        playerMovementScript = GetComponent<PlayerMovement>();
+        playerMovementScript = GetComponent<FinalPlayerMovement>();
         playerSpriteAnimator = this.gameObject.transform.GetChild(0).GetComponent<Animator>();
         arrowTimer = 0;
         shooting = false;
