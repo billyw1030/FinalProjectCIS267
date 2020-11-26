@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlatformArrow : MonoBehaviour
 {
     public int destroyTimer;
+    private bool isFrozen;
     // Start is called before the first frame update
     void Start()
     {
+        isFrozen = false;
         Destroy(this.gameObject, destroyTimer);
     }
 
@@ -20,13 +22,17 @@ public class PlatformArrow : MonoBehaviour
     {
         if (platformArrowCollision.gameObject.CompareTag("Wall") || platformArrowCollision.gameObject.CompareTag("Platform") || platformArrowCollision.gameObject.CompareTag("Ground"))
         {
-            this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+            if (isFrozen == false)
+            {
+                this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                isFrozen = true;
+            }
         }
-        else if(platformArrowCollision.gameObject.CompareTag("Player"))
+        else if (platformArrowCollision.gameObject.CompareTag("Player") && isFrozen == false)
         {
             //do nothing
         }
-        else 
+        else if (isFrozen == false) 
         {
             Destroy(this.gameObject);
         }
