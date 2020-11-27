@@ -19,7 +19,7 @@ public class BoxTarget : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D boxDrop)
     {
-        if(boxDrop.gameObject.CompareTag("Arrow"))
+        if(boxDrop.gameObject.CompareTag("Arrow") || boxDrop.gameObject.CompareTag("FireArrow"))
         {
             Destroy(this.gameObject);
             box.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;

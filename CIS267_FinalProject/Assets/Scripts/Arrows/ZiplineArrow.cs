@@ -42,7 +42,7 @@ public class ZiplineArrow : MonoBehaviour
     {
         if(ziplineCollision.gameObject.CompareTag("endline"))
         {
-            Player.transform.position = ziplineCollision.gameObject.transform.position;
+            Player.gameObject.transform.position = ziplineCollision.gameObject.transform.position;
             Destroy(this.gameObject);
 
         }
