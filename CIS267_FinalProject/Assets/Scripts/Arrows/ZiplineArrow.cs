@@ -40,9 +40,10 @@ public class ZiplineArrow : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D ziplineCollision)
     {
-        if(ziplineCollision.gameObject.CompareTag("endline"))
+        if(ziplineCollision.gameObject.CompareTag("Ground" /*"endline"*/))
         {
-            Player.gameObject.transform.position = ziplineCollision.gameObject.transform.position;
+            Debug.Log("Grapple");
+            Player.transform.position = ziplineCollision.gameObject.transform.position; //maybe try putting Player.gameObject.transform.position? Im not sure, this would technically teleport you to a point where the arrow lands
             Destroy(this.gameObject);
 
         }
