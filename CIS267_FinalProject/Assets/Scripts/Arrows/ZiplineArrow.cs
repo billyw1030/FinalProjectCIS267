@@ -7,16 +7,17 @@ public class ZiplineArrow : MonoBehaviour
     public GameObject chain;
     public GameObject arrow;
     public GameObject Player;
-    public float clock;
-    public bool startcount;
-    public float waitTime;
+    
+    
+    
     
     // Start is called before the first frame update
     void Start()
     {
-        clock = 0;
+        //clock = 0;
 
-        startcount = false;
+        //startcount = false;
+        
 
         
     }
@@ -24,17 +25,17 @@ public class ZiplineArrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startcount)
-        {
-            clock += Time.deltaTime;
+       // if (startcount)
+        //{
+            //clock += Time.deltaTime;
 
-            if (clock >= waitTime)
-            {
-                clock = 0;
-                Destroy(this.gameObject);
+           // if (clock >= waitTime)
+           // {
+             //   clock = 0;
+             //   Destroy(this.gameObject);
 
-            }
-        }
+            //}
+       //}
         
 
     }
@@ -43,8 +44,11 @@ public class ZiplineArrow : MonoBehaviour
         if(ziplineCollision.gameObject.CompareTag("Ground" /*"endline"*/))
         {
             Debug.Log("Grapple");
-            Player.transform.position = ziplineCollision.gameObject.transform.position; //maybe try putting Player.gameObject.transform.position? Im not sure, this would technically teleport you to a point where the arrow lands
+            Player.gameObject.transform.position = arrow.gameObject.transform.position;
+            Debug.Log("Player moved");
             Destroy(this.gameObject);
+
+
 
         }
         else if (!ziplineCollision.gameObject.CompareTag("Player"))
@@ -52,6 +56,7 @@ public class ZiplineArrow : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
 
 
 

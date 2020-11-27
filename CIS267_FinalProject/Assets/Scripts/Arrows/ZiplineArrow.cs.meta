@@ -7,6 +7,7 @@ MonoImporter:
   - chain: {fileID: 2728998270602944868, guid: f6d6c169a38c6b04d89c345cb5ce29b1, type: 3}
   - arrow: {fileID: 6556956235806267571, guid: 876862adeaf451643b46a2126c94a9db, type: 3}
   - Player: {fileID: 133800044376345149, guid: 212acadd7813eaf4c952cae8be020d02, type: 3}
+  - arrowpos: {fileID: 1535964639099728988, guid: 876862adeaf451643b46a2126c94a9db, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
