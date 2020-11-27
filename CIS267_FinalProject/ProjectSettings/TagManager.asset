@@ -24,6 +24,7 @@ TagManager:
   - endline
   - loadnext
   - river
+  - Spikes
   layers:
   - Default
   - TransparentFX

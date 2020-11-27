@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,9 +59,9 @@ public class PlayerShoot : MonoBehaviour
         selectedArrow = basicArrow;
 
         //----------------TEMP----------------
-         unlockedPlatformArrows = true;
+         unlockedPlatformArrows = false;
          unlockedZiplineArrows = false;
-         unlockedFireArrows = true;
+         unlockedFireArrows = false;
 
     }
 
@@ -73,7 +74,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void shoot()
     {
-        if (Input.GetKey(shootKey))
+        if (Input.GetKeyDown(shootKey))
         {
             if (shooting == false)
             {
@@ -274,5 +275,26 @@ public class PlayerShoot : MonoBehaviour
             playerSpriteAnimator.SetBool("hasZipline", false);
             playerSpriteAnimator.SetBool("hasFire", true);
         }
+
+        
+
+        
     }
+
+    //Getters and Setters
+
+    public void setUnlockedPlatformArrows(bool p)
+    {
+        unlockedPlatformArrows = p;
+    }
+    public void setUnlockedZiplineArrows(bool z)
+    {
+        unlockedZiplineArrows = z;
+    }
+    public void setUnlockedFireArrows(bool f)
+    {
+        unlockedFireArrows = f;
+    }
+
+
 }

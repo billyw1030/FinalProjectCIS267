@@ -5,17 +5,16 @@ using UnityEngine;
 public class RopeBox : MonoBehaviour
 {
     public GameObject myBox;
-    public float dropTime;
+    public float dropHeight;
 
     private bool boxFreeze;
-    private float boxTimer;
+
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        boxTimer = 0;
         boxFreeze = false;
     }
 
@@ -24,13 +23,11 @@ public class RopeBox : MonoBehaviour
     {
         if(boxFreeze)
         {
-            boxTimer += Time.deltaTime;
 
-            if(boxTimer >= dropTime)
+            if(myBox.transform.position.y <= dropHeight)
             {
                 myBox.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
                 boxFreeze = false;
-                boxTimer = 0;
                 Destroy(this.gameObject);
             }
         }

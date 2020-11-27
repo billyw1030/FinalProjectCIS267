@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 1928257969378292316}
   - component: {fileID: 8110274030521192896}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,8 +203,8 @@ MonoBehaviour:
   ziplineArrow: {fileID: 6556956235806267571, guid: 876862adeaf451643b46a2126c94a9db, type: 3}
   fireArrow: {fileID: 7654019137262373994, guid: a32f2684e67f4ad4dbf3d4c43364ebd0, type: 3}
   arrowVelocity: 10
-  shootingDelay: 0.8
-  animationLength: 1.06
+  shootingDelay: 0.6
+  animationLength: 0.5
 --- !u!114 &1928257969378292316
 MonoBehaviour:
   m_ObjectHideFlags: 0
