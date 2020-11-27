@@ -22,6 +22,8 @@ TagManager:
   - Box
   - Sheild Enemy
   - endline
+  - loadnext
+  - river
   layers:
   - Default
   - TransparentFX

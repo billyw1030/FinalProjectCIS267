@@ -6,9 +6,11 @@ public class ZiplineArrow : MonoBehaviour
 {
     public GameObject chain;
     public GameObject arrow;
+    public GameObject Player;
     public float clock;
     public bool startcount;
     public float waitTime;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -29,13 +31,27 @@ public class ZiplineArrow : MonoBehaviour
             if (clock >= waitTime)
             {
                 clock = 0;
-                GameObject c = Instantiate(chain) as GameObject;
-                clock = 0;
-                //c.transform.position = arrow.position;
+                Destroy(this.gameObject);
+
             }
         }
+        
 
     }
-    
+    private void OnCollisionEnter2D(Collision2D ziplineCollision)
+    {
+        if(ziplineCollision.gameObject.CompareTag("endline"))
+        {
+            Player.transform.position = ziplineCollision.gameObject.transform.position;
+            Destroy(this.gameObject);
+
+        }
+        else if (!ziplineCollision.gameObject.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
 
 }

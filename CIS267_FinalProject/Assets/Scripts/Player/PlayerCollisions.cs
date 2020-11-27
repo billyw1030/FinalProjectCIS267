@@ -32,6 +32,15 @@ public class PlayerCollisions : MonoBehaviour
             DontDestroyOnLoad(GameObject.Find("GameManager"));
             SceneManager.LoadScene("Level2");
         }
+        if (other.gameObject.CompareTag("loadnext"))
+        {
+            SceneManager.LoadScene("Level3");
+
+        }
+        if (other.gameObject.CompareTag("river"))
+        {
+            SceneManager.LoadScene("Level2");
+        }
         //if (other.gameObject.CompareTag("OutOfBounds"))
         //{
         //    //Debug.Log("Out");
