@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrainingTarget : MonoBehaviour
 {
-    private int targetHealth = 2;
+    private int targetHealth = 1;
     // Start is called before the first frame update
     void Start()
     {
