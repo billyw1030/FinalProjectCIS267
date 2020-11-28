@@ -13692,7 +13692,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747069383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.38908, y: -2.2120662, z: -10}
+  m_LocalPosition: {x: -13.09812, y: -2.2120662, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 810352699}
@@ -14571,8 +14571,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &1881671710
-BoxCollider2D:
+--- !u!60 &1881671710
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14580,11 +14580,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1881671709}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_Material: {fileID: 6200000, guid: 16150ab8d65a6004c8906cccdd94eb1a, type: 2}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.08379197}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -14594,9 +14594,34 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.73, y: 1.167584}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.056355678, y: -0.22245923}
+      - {x: 0.14136831, y: -0.20449737}
+      - {x: 0.16407967, y: -0.1273779}
+      - {x: 0.21499999, y: -0.14999999}
+      - {x: 0.29863167, y: -0.04601907}
+      - {x: 0.36499998, y: 0.04}
+      - {x: 0.36499998, y: 0.24}
+      - {x: 0.355, y: 0.26}
+      - {x: 0.315, y: 0.39999998}
+      - {x: 0.255, y: 0.48999998}
+      - {x: 0.21499999, y: 0.5}
+      - {x: -0.18460315, y: 0.74100834}
+      - {x: -0.185, y: 0.5}
+      - {x: -0.27929106, y: 0.38126644}
+      - {x: -0.352724, y: 0.34355983}
+      - {x: -0.33226383, y: 0.066990405}
+      - {x: -0.262724, y: -0.071358606}
+      - {x: -0.252724, y: -0.083138645}
+      - {x: -0.20635569, y: -0.13614812}
+      - {x: -0.175, y: -0.29}
+      - {x: -0.195, y: -0.48}
+      - {x: -0.195, y: -0.5}
+      - {x: 0.085, y: -0.5}
+      - {x: 0.085, y: -0.48}
+      - {x: 0.015, y: -0.41}
+      - {x: 0.04453984, y: -0.30944985}
 --- !u!212 &1881671711
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14636,7 +14661,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -9
+  m_SortingOrder: -8
   m_Sprite: {fileID: 4853865819829165027, guid: 5dd9cfa87d8760c4caeef304c2e01d1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
