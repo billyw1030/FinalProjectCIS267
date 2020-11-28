@@ -136,7 +136,7 @@ public class PlayerShoot : MonoBehaviour
         {
             selectedArrow = platformArrow;
         }
-        else if(Input.GetKeyDown(ziplineKey) && unlockedPlatformArrows)
+        else if(Input.GetKeyDown(ziplineKey) && unlockedZiplineArrows)
         {
             selectedArrow = ziplineArrow;
         }
