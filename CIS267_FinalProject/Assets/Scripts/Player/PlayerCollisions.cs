@@ -40,7 +40,7 @@ public class PlayerCollisions : MonoBehaviour
         }
         if (other.gameObject.CompareTag("river"))
         {
-            DontDestroyOnLoad(GameObject.Find("GameManager"));
+            
             SceneManager.LoadScene("Level2");
         }
         //if (other.gameObject.CompareTag("OutOfBounds"))
