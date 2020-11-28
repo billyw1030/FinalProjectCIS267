@@ -34,8 +34,9 @@ public class PlayerCollisions : MonoBehaviour
         }
         if (other.gameObject.CompareTag("loadnext"))
         {
-            DontDestroyOnLoad(GameObject.Find("GameManager"));
             SceneManager.LoadScene("Level3");
+            DontDestroyOnLoad(GameObject.Find("GameManager"));
+            
 
         }
         if (other.gameObject.CompareTag("river"))
