@@ -31,7 +31,7 @@ public class ZiplineArrow : MonoBehaviour
     {
         Player = GameObject.Find("Player");
         
-        if (ziplineCollision.gameObject.CompareTag("Ground"))
+        if (ziplineCollision.gameObject.CompareTag("endline"))
         {
             Debug.Log("Grapple");
             Player.transform.position = arrow.gameObject.transform.position;
