@@ -76,4 +76,9 @@ public class FootJumpColliders : MonoBehaviour
         }
     }
 
+
+    public void setObjectsCollided(float o)
+    {
+        objectsCollided = o;
+    }
 }

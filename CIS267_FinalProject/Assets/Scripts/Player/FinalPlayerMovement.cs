@@ -87,6 +87,7 @@ public class FinalPlayerMovement : MonoBehaviour
     {
         if(Input.GetKeyDown(jumpKey) && jumpColliderScript.getIsGrounded())
         {
+            jumpColliderScript.setObjectsCollided(0);
             playerRigidBody.velocity = new Vector2(0, jumpForce);
         }
 

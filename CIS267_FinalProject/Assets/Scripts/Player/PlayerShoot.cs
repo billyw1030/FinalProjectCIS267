@@ -128,156 +128,158 @@ public class PlayerShoot : MonoBehaviour
 
     private void swapArrow()
     {
-        if(Input.GetKeyDown(basicKey))
+        if (shooting == false)
         {
-            selectedArrow = basicArrow;
-        }
-        else if(Input.GetKeyDown(platformKey) && unlockedPlatformArrows)
-        {
-            selectedArrow = platformArrow;
-        }
-        else if(Input.GetKeyDown(ziplineKey) && unlockedZiplineArrows)
-        {
-            selectedArrow = ziplineArrow;
-        }
-        else if(Input.GetKeyDown(fireKey) && unlockedFireArrows)
-        {
-            selectedArrow = fireArrow;
-        }
-        else if(Input.GetKeyDown(leftCycle))
-        {
-            if(selectedArrow == basicArrow)
+            if (Input.GetKeyDown(basicKey))
             {
-                if(unlockedFireArrows)
+                selectedArrow = basicArrow;
+            }
+            else if (Input.GetKeyDown(platformKey) && unlockedPlatformArrows)
+            {
+                selectedArrow = platformArrow;
+            }
+            else if (Input.GetKeyDown(ziplineKey) && unlockedZiplineArrows)
+            {
+                selectedArrow = ziplineArrow;
+            }
+            else if (Input.GetKeyDown(fireKey) && unlockedFireArrows)
+            {
+                selectedArrow = fireArrow;
+            }
+            else if (Input.GetKeyDown(leftCycle))
+            {
+                if (selectedArrow == basicArrow)
                 {
-                    selectedArrow = fireArrow;
+                    if (unlockedFireArrows)
+                    {
+                        selectedArrow = fireArrow;
+                    }
+                    else if (unlockedZiplineArrows)
+                    {
+                        selectedArrow = ziplineArrow;
+                    }
+                    else if (unlockedPlatformArrows)
+                    {
+                        selectedArrow = platformArrow;
+                    }
+                    //Stays the same if else
                 }
-                else if(unlockedZiplineArrows)
+                else if (selectedArrow == platformArrow)
                 {
-                    selectedArrow = ziplineArrow;
+                    //Will always cycle to basic arrow
+                    selectedArrow = basicArrow;
                 }
-                else if(unlockedPlatformArrows)
+                else if (selectedArrow == ziplineArrow)
                 {
-                    selectedArrow = platformArrow;
+                    //Really don't need these but you never know
+                    if (unlockedPlatformArrows)
+                    {
+                        selectedArrow = platformArrow;
+                    }
+                    else
+                    {
+                        selectedArrow = basicArrow;
+                    }
                 }
-                //Stays the same if else
+                else if (selectedArrow == fireArrow)
+                {
+                    if (unlockedZiplineArrows)
+                    {
+                        selectedArrow = ziplineArrow;
+                    }
+                    else if (unlockedPlatformArrows)
+                    {
+                        selectedArrow = platformArrow;
+                    }
+                    else
+                    {
+                        selectedArrow = basicArrow;
+                    }
+                }
+            }
+            else if (Input.GetKeyDown(rightCycle))
+            {
+                if (selectedArrow == basicArrow)
+                {
+
+                    if (unlockedPlatformArrows)
+                    {
+                        selectedArrow = platformArrow;
+                    }
+                    else if (unlockedZiplineArrows)
+                    {
+                        selectedArrow = ziplineArrow;
+                    }
+                    else if (unlockedFireArrows)
+                    {
+                        selectedArrow = fireArrow;
+                    }
+
+                }
+                else if (selectedArrow == platformArrow)
+                {
+                    if (unlockedZiplineArrows)
+                    {
+                        selectedArrow = ziplineArrow;
+                    }
+                    else if (unlockedFireArrows)
+                    {
+                        selectedArrow = fireArrow;
+                    }
+                    else
+                    {
+                        selectedArrow = basicArrow;
+                    }
+                }
+                else if (selectedArrow == ziplineArrow)
+                {
+                    if (unlockedFireArrows)
+                    {
+                        selectedArrow = fireArrow;
+                    }
+                    else
+                    {
+                        selectedArrow = basicArrow;
+                    }
+                }
+                else if (selectedArrow == fireArrow)
+                {
+                    //Will always cycle to basic arrow
+                    selectedArrow = basicArrow;
+                }
+            }
+
+
+
+            //Animation Variables
+            if (selectedArrow == basicArrow)
+            {
+                playerSpriteAnimator.SetBool("hasPlatform", false);
+                playerSpriteAnimator.SetBool("hasZipline", false);
+                playerSpriteAnimator.SetBool("hasFire", false);
             }
             else if (selectedArrow == platformArrow)
             {
-                //Will always cycle to basic arrow
-                selectedArrow = basicArrow;
+                playerSpriteAnimator.SetBool("hasPlatform", true);
+                playerSpriteAnimator.SetBool("hasZipline", false);
+                playerSpriteAnimator.SetBool("hasFire", false);
             }
             else if (selectedArrow == ziplineArrow)
             {
-                //Really don't need these but you never know
-                if (unlockedPlatformArrows)
-                {
-                    selectedArrow = platformArrow;
-                }
-                else
-                {
-                    selectedArrow = basicArrow;
-                }
+                //Currently Not Set Up!
+                playerSpriteAnimator.SetBool("hasPlatform", false);
+                playerSpriteAnimator.SetBool("hasZipline", false);
+                playerSpriteAnimator.SetBool("hasFire", false);
             }
             else if (selectedArrow == fireArrow)
             {
-                if (unlockedZiplineArrows)
-                {
-                    selectedArrow = ziplineArrow;
-                }
-                else if (unlockedPlatformArrows)
-                {
-                    selectedArrow = platformArrow;
-                }
-                else
-                {
-                    selectedArrow = basicArrow;
-                }
+                playerSpriteAnimator.SetBool("hasPlatform", false);
+                playerSpriteAnimator.SetBool("hasZipline", false);
+                playerSpriteAnimator.SetBool("hasFire", true);
             }
+
+
         }
-        else if(Input.GetKeyDown(rightCycle))
-        {
-            if(selectedArrow == basicArrow)
-            {
-
-                if (unlockedPlatformArrows)
-                {
-                    selectedArrow = platformArrow;
-                }
-                else if (unlockedZiplineArrows)
-                {
-                    selectedArrow = ziplineArrow;
-                }
-                else if (unlockedFireArrows)
-                {
-                    selectedArrow = fireArrow;
-                }
-
-            }
-            else if (selectedArrow == platformArrow)
-            {
-                if(unlockedZiplineArrows)
-                {
-                    selectedArrow = ziplineArrow;
-                }
-                else if (unlockedFireArrows)
-                {
-                    selectedArrow = fireArrow;
-                }
-                else
-                {
-                    selectedArrow = basicArrow;
-                }
-            }
-            else if (selectedArrow == ziplineArrow)
-            {
-                if(unlockedFireArrows)
-                {
-                    selectedArrow = fireArrow;
-                }
-                else
-                {
-                    selectedArrow = basicArrow;
-                }
-            }
-            else if (selectedArrow == fireArrow)
-            {
-                //Will always cycle to basic arrow
-                selectedArrow = basicArrow;
-            }
-        }
-
-
-
-        //Animation Variables
-        if(selectedArrow == basicArrow)
-        {
-            playerSpriteAnimator.SetBool("hasPlatform", false);
-            playerSpriteAnimator.SetBool("hasZipline", false);
-            playerSpriteAnimator.SetBool("hasFire", false);
-        }
-        else if (selectedArrow == platformArrow)
-        {
-            playerSpriteAnimator.SetBool("hasPlatform", true);
-            playerSpriteAnimator.SetBool("hasZipline", false);
-            playerSpriteAnimator.SetBool("hasFire", false);
-        }
-        else if (selectedArrow == ziplineArrow)
-        {
-            //Currently Not Set Up!
-            playerSpriteAnimator.SetBool("hasPlatform", false);
-            playerSpriteAnimator.SetBool("hasZipline", false);
-            playerSpriteAnimator.SetBool("hasFire", false);
-        }
-        else if (selectedArrow == fireArrow)
-        {
-            playerSpriteAnimator.SetBool("hasPlatform", false);
-            playerSpriteAnimator.SetBool("hasZipline", false);
-            playerSpriteAnimator.SetBool("hasFire", true);
-        }
-
-        
-
         
     }
 
