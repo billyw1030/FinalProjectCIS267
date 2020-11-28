@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Temp
+using UnityEngine.SceneManagement;
+
 public class FootJumpColliders : MonoBehaviour
 {
     //stored values
@@ -54,7 +57,19 @@ public class FootJumpColliders : MonoBehaviour
         else if (collision.gameObject.CompareTag("BlastZone"))
         {
             //TEMPORARY
-            this.gameObject.transform.parent.gameObject.transform.position = new Vector2(0.3f, -0.8f);
+            //this.gameObject.transform.parent.gameObject.transform.position = new Vector2(0.3f, -0.8f);
+
+            try
+            {
+                DontDestroyOnLoad(GameObject.Find("GameManager"));
+                SceneManager.LoadScene("Level3");
+            }
+            catch
+            {
+                //for testing
+                this.gameObject.transform.parent.gameObject.transform.position = new Vector2(0.3f, -0.8f);
+            }
+
         }
 
     }
