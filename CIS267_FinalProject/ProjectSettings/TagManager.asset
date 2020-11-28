@@ -25,6 +25,7 @@ TagManager:
   - loadnext
   - river
   - Spikes
+  - Test
   layers:
   - Default
   - TransparentFX
