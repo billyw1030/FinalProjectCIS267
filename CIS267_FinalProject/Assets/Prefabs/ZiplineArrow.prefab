@@ -146,7 +146,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chain: {fileID: 2728998270602944868, guid: f6d6c169a38c6b04d89c345cb5ce29b1, type: 3}
   arrow: {fileID: 6556956235806267571}
-  Player: {fileID: 133800044376345149, guid: 212acadd7813eaf4c952cae8be020d02, type: 3}
-  clock: 0
-  startcount: 0
   waitTime: 5
