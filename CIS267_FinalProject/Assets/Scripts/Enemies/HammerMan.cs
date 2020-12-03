@@ -8,9 +8,11 @@ public class HammerMan : MonoBehaviour
     private float speed;
     private Transform target;
     private Rigidbody2D enemyRigidBody;
+    private Animator HammerAnim;
 
     private void Start()
     {
+        HammerAnim = GameObject.Find("HammerManTester").GetComponent<Animator>();
         enemyRigidBody = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
@@ -19,18 +21,23 @@ public class HammerMan : MonoBehaviour
     void Update()
     {
         speed = 0.5f;
+
+
         if (Vector2.Distance(transform.position, target.position) < 2)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             if (transform.position.x < 0)
             {
+                HammerAnim.SetBool("IsWalking", true);
                 enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
             }
             else if (transform.position.x > 0)
             {
+                HammerAnim.SetBool("IsWalking", true);
                 enemyRigidBody.transform.localScale = new Vector3(1, 1, 1);
             }
         }
+        HammerAnim.SetBool("IsWalking", false);
     }
 
     private void OnCollisionEnter2D(Collision2D HammerManCollisions)
@@ -42,7 +49,8 @@ public class HammerMan : MonoBehaviour
 
             if(hammerHealth == 0)
             {
-                Destroy(this.gameObject);
+                HammerAnim.SetBool("IsDead", true);
+                Destroy(this.gameObject, 3);
             }
         }
     }
