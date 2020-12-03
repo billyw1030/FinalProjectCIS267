@@ -10,13 +10,13 @@ public class PlayerCollisions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -36,18 +36,34 @@ public class PlayerCollisions : MonoBehaviour
         {
             SceneManager.LoadScene("Level3");
             DontDestroyOnLoad(GameObject.Find("GameManager"));
-            
+
 
         }
         if (other.gameObject.CompareTag("river"))
         {
-            
+
             SceneManager.LoadScene("Level2");
         }
+
+
+
+
         //if (other.gameObject.CompareTag("OutOfBounds"))
         //{
         //    //Debug.Log("Out");
         //    SceneManager.LoadScene("SampleScene");
         //}
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("HammerEnemy"))
+        {
+            Debug.Log("HammerCollision");
+            GameObject.Find("GameManager").GetComponent<MainGameManagerScript>().playerLives = GameObject.Find("GameManager").GetComponent<MainGameManagerScript>().playerLives - 1;
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
+        }
     }
 }

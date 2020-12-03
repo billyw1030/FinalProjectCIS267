@@ -19,6 +19,7 @@ public class MenuNavigation : MonoBehaviour
     public void loadGame()
     {
         DontDestroyOnLoad(GameObject.Find("GameManager"));
+        GameObject.Find("GameManager").GetComponent<MainGameManagerScript>().playerLives = 3;
         SceneManager.LoadScene("Level1");
         //Debug.Log("ButtonClicked");
     }

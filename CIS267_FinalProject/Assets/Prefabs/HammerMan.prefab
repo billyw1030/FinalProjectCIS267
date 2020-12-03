@@ -47,7 +47,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000029802322, y: 0.007264495}
+  m_Offset: {x: -0.000689432, y: -0.04581803}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -58,7 +58,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.40915745, y: 0.37525678}
+  m_Size: {x: 0.31126502, y: 0.26909173}
   m_EdgeRadius: 0
 --- !u!50 &8563642915396021785
 Rigidbody2D:
@@ -72,7 +72,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -93,9 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b35ea953f0d5447a15dfbcbb2bf08f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2
-  wallLeft: 0
-  wallRight: 5
+  speed: 0
 --- !u!1 &8563642917348327295
 GameObject:
   m_ObjectHideFlags: 0

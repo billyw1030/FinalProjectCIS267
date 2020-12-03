@@ -34,5 +34,9 @@ public class BasicArrowScript : MonoBehaviour
         {
             startClock = true;
         }
+        if(collision.gameObject.CompareTag("HammerEnemy"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

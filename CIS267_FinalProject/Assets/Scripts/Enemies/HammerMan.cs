@@ -3,27 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HammerMan : MonoBehaviour
-{ 
-        public float walkSpeed = 2.0f;
-        public float wallLeft = 0.0f;
-        public float wallRight = 5.0f;
-        float walkingDirection = 1.0f;
-        Vector3 walkAmount;
+{
+    private int hammerHealth = 2;
+    private float speed;
+    private Transform target;
+    private Rigidbody2D enemyRigidBody;
 
-        // Update is called once per frame
-        void Update()
+    private void Start()
+    {
+        enemyRigidBody = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        speed = 0.5f;
+        if (Vector2.Distance(transform.position, target.position) < 2)
         {
-            //walkAmount.x = walkingDirection * walkSpeed * Time.deltaTime;
-
-            //if (walkingDirection > 0.0f && transform.position.x >= wallRight)
-            //{
-            //    walkingDirection = -1.0f;
-            //}
-            //else if (walkingDirection < 0.0f && transform.position.x <= wallLeft)
-            //{
-            //    walkingDirection = 1.0f;
-            //    transform.Translate(walkAmount);
-            //}
-
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            if (transform.position.x < 0)
+            {
+                enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (transform.position.x > 0)
+            {
+                enemyRigidBody.transform.localScale = new Vector3(1, 1, 1);
+            }
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D HammerManCollisions)
+    {
+        if(HammerManCollisions.gameObject.CompareTag("Arrow"))
+        {
+            Destroy(HammerManCollisions.gameObject);
+            hammerHealth = hammerHealth - 1;
+
+            if(hammerHealth == 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
 }
