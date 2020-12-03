@@ -26,6 +26,7 @@ TagManager:
   - river
   - Spikes
   - Test
+  - HammerEnemy
   layers:
   - Default
   - TransparentFX
