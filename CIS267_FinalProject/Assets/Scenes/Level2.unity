@@ -6751,7 +6751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628262857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.204, y: -4.57, z: 5}
+  m_LocalPosition: {x: -0.204, y: -4.57, z: 0}
   m_LocalScale: {x: 0.20790184, y: 0.20436297, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13032,7 +13032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1535964639099728988, guid: 876862adeaf451643b46a2126c94a9db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1535964639099728988, guid: 876862adeaf451643b46a2126c94a9db, type: 3}
       propertyPath: m_LocalRotation.x
@@ -22326,8 +22326,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2092429761}
   - component: {fileID: 2092429760}
-  - component: {fileID: 2092429759}
   - component: {fileID: 2092429758}
+  - component: {fileID: 2092429759}
   m_Layer: 0
   m_Name: Box (2)
   m_TagString: Ground
@@ -22356,8 +22356,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &2092429759
-PolygonCollider2D:
+--- !u!61 &2092429759
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22379,13 +22379,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.016205404, y: 0.86663264}
-      - {x: -0.8389116, y: 0.86167514}
-      - {x: -0.85003036, y: -0.85321635}
-      - {x: 0.8567563, y: -0.8599245}
-      - {x: 0.8579263, y: 0.862701}
+  serializedVersion: 2
+  m_Size: {x: 1.72, y: 1.72}
+  m_EdgeRadius: 0
 --- !u!212 &2092429760
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22445,7 +22441,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092429757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.173, y: -2.243, z: 0}
+  m_LocalPosition: {x: 3.964, y: -2.243, z: 0}
   m_LocalScale: {x: 0.21722208, y: 0.21776293, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
