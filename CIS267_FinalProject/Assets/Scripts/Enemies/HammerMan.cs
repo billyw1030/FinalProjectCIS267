@@ -8,12 +8,17 @@ public class HammerMan : MonoBehaviour
     private float speed;
     private Transform target;
     private Rigidbody2D enemyRigidBody;
+    //private SpriteRenderer enemySprite;
+    //public Transform playerCharacter;
+    public GameObject MainSprite;
     private Animator HammerAnim;
 
     private void Start()
     {
-        HammerAnim = GameObject.Find("HammerManTester").GetComponent<Animator>();
-        enemyRigidBody = GetComponent<Rigidbody2D>();
+        //this.enemySprite = this.GetComponent<SpriteRenderer>();
+        //HammerAnim = transform.Find("HammerManTest").GetComponent<Animator>();
+        HammerAnim = MainSprite.GetComponent<Animator>();
+        enemyRigidBody = gameObject.GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
@@ -23,21 +28,27 @@ public class HammerMan : MonoBehaviour
         speed = 0.5f;
 
 
-        if (Vector2.Distance(transform.position, target.position) < 2)
+        if (Vector2.Distance(transform.position, target.position) > .5)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            if (transform.position.x < 0)
+
+            if (this.gameObject.GetComponent<Rigidbody>().velocity.x < 0)
             {
                 HammerAnim.SetBool("IsWalking", true);
                 enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
             }
-            else if (transform.position.x > 0)
+            else if (this.gameObject.GetComponent<Rigidbody>().velocity.x > 0)
             {
                 HammerAnim.SetBool("IsWalking", true);
                 enemyRigidBody.transform.localScale = new Vector3(1, 1, 1);
             }
         }
         HammerAnim.SetBool("IsWalking", false);
+
+        if(Vector2.Distance(transform.position, target.position) < 1)
+        {
+            HammerAnim.SetBool("TimeToAttack", true);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D HammerManCollisions)
@@ -50,8 +61,16 @@ public class HammerMan : MonoBehaviour
             if(hammerHealth == 0)
             {
                 HammerAnim.SetBool("IsDead", true);
+                Destroy(GetComponent<BoxCollider2D>());
                 Destroy(this.gameObject, 3);
             }
         }
+        if(HammerManCollisions.gameObject.CompareTag("FallingTree"))
+        {
+            HammerAnim.SetBool("IsDead", true);
+            Destroy(GetComponent<BoxCollider2D>());
+            Destroy(this.gameObject, 3);
+        }
     }
+
 }
