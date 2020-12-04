@@ -14,7 +14,10 @@ public class MenuNavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            openPauseMenu();
+        }
     }
     public void loadGame()
     {
@@ -30,8 +33,9 @@ public class MenuNavigation : MonoBehaviour
         Application.Quit();
     }
 
-    public void settings()
+    public void openPauseMenu()
     {
-
+        Time.timeScale = 0;
     }
+
 }
