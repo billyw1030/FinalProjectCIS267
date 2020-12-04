@@ -66,6 +66,7 @@ public class GolemEnemy : MonoBehaviour
         {
             Destroy(box);
             GolemAnim.SetBool("IsDead", true);
+            //Destroy(gameObject.GetComponent<BoxCollider2D>());
             
             
 

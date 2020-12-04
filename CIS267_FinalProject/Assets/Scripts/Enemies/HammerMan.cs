@@ -11,15 +11,17 @@ public class HammerMan : MonoBehaviour
     //private SpriteRenderer enemySprite;
     //public Transform playerCharacter;
     public GameObject MainSprite;
+    public GameObject player;
     private Animator HammerAnim;
+    private int num;
 
     private void Start()
     {
         //this.enemySprite = this.GetComponent<SpriteRenderer>();
         //HammerAnim = transform.Find("HammerManTest").GetComponent<Animator>();
-        HammerAnim = MainSprite.GetComponent<Animator>();
-        enemyRigidBody = gameObject.GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        //HammerAnim = MainSprite.GetComponent<Animator>();
+        HammerAnim = GetComponentInChildren<Animator>();
+        enemyRigidBody = this.gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -28,26 +30,36 @@ public class HammerMan : MonoBehaviour
         speed = 0.5f;
 
 
-        if (Vector2.Distance(transform.position, target.position) > .5)
+        if (Vector2.Distance(this.transform.position, player.transform.position) > .2)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            this.transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
 
-            if (this.gameObject.GetComponent<Rigidbody>().velocity.x < 0)
+            if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x < 0)
             {
                 HammerAnim.SetBool("IsWalking", true);
-                enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
+                //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
+                this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = true;
             }
-            else if (this.gameObject.GetComponent<Rigidbody>().velocity.x > 0)
+            else if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x > 0)
             {
                 HammerAnim.SetBool("IsWalking", true);
-                enemyRigidBody.transform.localScale = new Vector3(1, 1, 1);
+                //enemyRigidBody.transform.localScale = new Vector3(1, 1, 1);
+                this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = false;
             }
         }
         HammerAnim.SetBool("IsWalking", false);
 
-        if(Vector2.Distance(transform.position, target.position) < 1)
+        if(Vector2.Distance(this.transform.position, player.transform.position) < .5)
         {
-            HammerAnim.SetBool("TimeToAttack", true);
+            num = Random.Range(1, 2);
+            if (num == 1)
+            {
+                HammerAnim.SetBool("TimeToAttack", true);
+            }
+            else if (num == 2)
+            {
+                HammerAnim.SetBool("TimeToSpin", true);
+            }
         }
     }
 
@@ -61,7 +73,7 @@ public class HammerMan : MonoBehaviour
             if(hammerHealth == 0)
             {
                 HammerAnim.SetBool("IsDead", true);
-                Destroy(GetComponent<BoxCollider2D>());
+                //Destroy(GetComponent<BoxCollider2D>());
                 Destroy(this.gameObject, 3);
             }
         }

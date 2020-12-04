@@ -50,7 +50,7 @@ public class FootJumpColliders : MonoBehaviour
             playerSpriteAnimator.SetBool("isJumping", false);
         }
 
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("PlatformArrow"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("PlatformArrow") || collision.gameObject.CompareTag("Box"))
         {
                 objectsCollided++;
         }
