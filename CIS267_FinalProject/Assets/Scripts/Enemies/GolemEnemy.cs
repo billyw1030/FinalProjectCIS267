@@ -12,13 +12,14 @@ public class GolemEnemy : MonoBehaviour
     private bool Startcount=false;
     private GameObject Arrow;
     public GameObject box;
-    public GameObject enemy;
+    
+    
 
 
 
     void Start()
     {
-        GolemAnim = GameObject.Find("GolemSprite").GetComponent<Animator>();
+        GolemAnim = GetComponentInChildren<Animator>();
         GolemRigid = GetComponent<Rigidbody2D>();
     }
 
@@ -30,10 +31,11 @@ public class GolemEnemy : MonoBehaviour
             timeStart += Time.deltaTime;
             if(timeStart >= 1)
             {
+                Destroy(Arrow, 6.0f);
                 GolemAnim.SetBool("IsHit", false);
                 Startcount = false;
                 timeStart = 0;
-                Destroy(Arrow);
+                
             }
 
 
@@ -51,12 +53,23 @@ public class GolemEnemy : MonoBehaviour
             GolemAnim.SetBool("IsHit", true);
             //Destroy(collision.gameObject);
             Startcount = true;
+            
             Arrow = collision.gameObject;
+        }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GolemAnim.SetBool("IsHit", true);
+            Startcount = true;
+
         }
         if (collision.gameObject.CompareTag("Box"))
         {
             Destroy(box);
-            Destroy(enemy);
+            GolemAnim.SetBool("IsDead", true);
+            
+            
+
+            Destroy(this.gameObject, 2.15f);
         }
     }
 
