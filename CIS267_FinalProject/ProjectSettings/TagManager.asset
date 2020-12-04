@@ -27,6 +27,9 @@ TagManager:
   - Spikes
   - Test
   - HammerEnemy
+  - WitchEnemy
+  - Potion
+  - Background
   layers:
   - Default
   - TransparentFX

@@ -27,22 +27,26 @@ public class PlayerCollisions : MonoBehaviour
             Debug.Log("Key Obtained");
             Destroy(GameObject.Find("Key"));
         }
-        if (other.gameObject.CompareTag("Door") && keyObtained == true)
+        else if (other.gameObject.CompareTag("Door") && keyObtained == true)
         {
             DontDestroyOnLoad(GameObject.Find("GameManager"));
             SceneManager.LoadScene("Level2");
         }
-        if (other.gameObject.CompareTag("loadnext"))
+        else if (other.gameObject.CompareTag("loadnext"))
         {
             SceneManager.LoadScene("Level3");
             DontDestroyOnLoad(GameObject.Find("GameManager"));
 
 
         }
-        if (other.gameObject.CompareTag("river"))
+        else if (other.gameObject.CompareTag("river"))
         {
 
             SceneManager.LoadScene("Level2");
+        }
+        else if (other.gameObject.CompareTag("Potion") || other.gameObject.CompareTag("WitchEnemy"))
+        {
+            Debug.Log("Player has been hit!");
         }
 
 
