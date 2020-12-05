@@ -5,15 +5,17 @@ using UnityEngine;
 public class HammerMan : MonoBehaviour
 {
     private int hammerHealth = 2;
-    private float speed;
+    private float speed = 0.5f;
     private Transform target;
     private Rigidbody2D enemyRigidBody;
     //private SpriteRenderer enemySprite;
     //public Transform playerCharacter;
     public GameObject MainSprite;
-    public GameObject player;
+    private GameObject player;
     private Animator HammerAnim;
     private int num;
+    private float distance;
+    private float attackRange = 0.5f;
 
     private void Start()
     {
@@ -22,56 +24,86 @@ public class HammerMan : MonoBehaviour
         //HammerAnim = MainSprite.GetComponent<Animator>();
         HammerAnim = GetComponentInChildren<Animator>();
         enemyRigidBody = this.gameObject.GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
-    {
-        speed = 0.5f;
+    { 
 
-        if(HammerAnim.GetBool("TimeToAttack") == false && HammerAnim.GetBool("TimeToSpin") == false && HammerAnim.GetBool("IsDead") == false)
+        if (HammerAnim.GetBool("TimeToAttack") == false && HammerAnim.GetBool("TimeToSpin") == false && HammerAnim.GetBool("IsDead") == false)
         {
-            if (Vector2.Distance(this.transform.position, player.transform.position) > .2)
-            {
-                Debug.Log("Im further than .2");
-                this.transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+            distance = getPlayerDistance();
 
-                if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x < 0)
+            if (distance > 0)
+            {
+                HammerAnim.SetBool("IsWalking", true);
+                this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
+                //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
+                this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = false;
+            }
+            else if (distance < 0)
+            {
+                HammerAnim.SetBool("IsWalking", true);
+                this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed * -1, 0);
+                //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
+                this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = true;
+            }
+            else if (distance == attackRange || distance == attackRange * -1)
+            {
+                Debug.Log("Im less than .5");
+                HammerAnim.SetBool("IsWalking", false);
+                num = Random.Range(1, 3);
+
+                if (num == 1)
                 {
-                    HammerAnim.SetBool("IsWalking", true);
-                    //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
-                    this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = true;
+                   Debug.Log("FirstAttack");
+                   HammerAnim.SetBool("TimeToAttack", true);
                 }
-                else if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x > 0)
+                else if (num == 2)
                 {
-                    HammerAnim.SetBool("IsWalking", true);
-                    //enemyRigidBody.transform.localScale = new Vector3(1, 1, 1);
-                    this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = false;
+                   Debug.Log("SecondAttack");
+                   HammerAnim.SetBool("TimeToSpin", true);
                 }
             }
+
+            //if (Vector2.Distance(this.transform.position, player.transform.position) > .2)
+            //{
+            //    Debug.Log("Im further than .2");
+            //    this.transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+
+            //    if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x < 0)
+            //    {
+            //        HammerAnim.SetBool("IsWalking", true);
+            //        //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
+            //        this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = true;
+            //    }
+            //    else if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x > 0)
+            //    {
+            //        HammerAnim.SetBool("IsWalking", true);
+            //        //enemyRigidBody.transform.localScale = new Vector3(1, 1, 1);
+            //        this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = false;
+            //    }
+            //}
+            //else if (Vector2.Distance(this.transform.position, player.transform.position) < .3)
+            //{
+            //    Debug.Log("Im less than .5");
+            //    HammerAnim.SetBool("IsWalking", false);
+            //    num = Random.Range(1, 3);
+            //    if (num == 1)
+            //    {
+            //        Debug.Log("FirstAttack");
+            //        HammerAnim.SetBool("TimeToAttack", true);
+            //    }
+            //    else if (num == 2)
+            //    {
+            //        Debug.Log("SecondAttack");
+            //        HammerAnim.SetBool("TimeToSpin", true);
+            //    }
+
+
+            //}
         }
-        //HammerAnim.SetBool("IsWalking", false);
-
-        
-        else if(Vector2.Distance(this.transform.position, player.transform.position) < .5)
-        {
-            Debug.Log("Im less than .5");
-            HammerAnim.SetBool("IsWalking", false);
-            num = Random.Range(1, 3);
-            if (num == 1)
-            {
-                Debug.Log("FirstAttack");
-                HammerAnim.SetBool("TimeToAttack", true);
-            }
-            else if (num == 2)
-            {
-                Debug.Log("SecondAttack");
-                HammerAnim.SetBool("TimeToSpin", true);
-            }
-
-
-        }
-
     }
 
     private void OnCollisionEnter2D(Collision2D HammerManCollisions)
@@ -98,4 +130,10 @@ public class HammerMan : MonoBehaviour
         }
     }
 
+    private float getPlayerDistance()
+    {
+        float calculateDistance = player.transform.position.x - this.gameObject.transform.position.x;
+
+        return calculateDistance;
+    }
 }
