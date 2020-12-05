@@ -33,6 +33,7 @@ public class HammerMan : MonoBehaviour
         {
             if (Vector2.Distance(this.transform.position, player.transform.position) > .2)
             {
+                Debug.Log("Im further than .2");
                 this.transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
 
                 if (this.gameObject.GetComponent<Rigidbody2D>().velocity.x < 0)
@@ -52,8 +53,9 @@ public class HammerMan : MonoBehaviour
         //HammerAnim.SetBool("IsWalking", false);
 
         
-        if(Vector2.Distance(this.transform.position, player.transform.position) < .5)
+        else if(Vector2.Distance(this.transform.position, player.transform.position) < .5)
         {
+            Debug.Log("Im less than .5");
             HammerAnim.SetBool("IsWalking", false);
             num = Random.Range(1, 3);
             if (num == 1)
