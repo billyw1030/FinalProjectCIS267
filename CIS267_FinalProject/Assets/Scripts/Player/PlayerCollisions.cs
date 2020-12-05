@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollisions : MonoBehaviour
 {
+    //Objects
+    MainGameManagerScript gameManagerScript;
+
     private bool keyObtained = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        gameManagerScript = GameObject.Find("GameManager").GetComponent<MainGameManagerScript>();
     }
 
     // Update is called once per frame
@@ -25,28 +28,28 @@ public class PlayerCollisions : MonoBehaviour
         {
             keyObtained = true;
             Debug.Log("Key Obtained");
-            Destroy(GameObject.Find("Key"));
+            Destroy(other.gameObject);
         }
         else if (other.gameObject.CompareTag("Door") && keyObtained == true)
         {
-            DontDestroyOnLoad(GameObject.Find("GameManager"));
-            SceneManager.LoadScene("Level2");
+            gameManagerScript.setCurrentLevel("Level2");
+            gameManagerScript.startCurrentLevel();
         }
         else if (other.gameObject.CompareTag("loadnext"))
         {
-            SceneManager.LoadScene("Level3");
-            DontDestroyOnLoad(GameObject.Find("GameManager"));
+            gameManagerScript.setCurrentLevel("Level3");
+            gameManagerScript.startCurrentLevel();
 
 
         }
         else if (other.gameObject.CompareTag("river"))
         {
 
-            SceneManager.LoadScene("Level2");
+            gameManagerScript.playerDeath();
         }
-        else if (other.gameObject.CompareTag("Potion") || other.gameObject.CompareTag("WitchEnemy"))
+        else if (other.gameObject.CompareTag("Potion"))
         {
-            Debug.Log("Player has been hit!");
+            gameManagerScript.playerDeath();
         }
 
 
@@ -64,10 +67,19 @@ public class PlayerCollisions : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("HammerEnemy"))
         {
+            gameManagerScript.playerDeath();
+
+            /*
+
             Debug.Log("HammerCollision");
             GameObject.Find("GameManager").GetComponent<MainGameManagerScript>().playerLives = GameObject.Find("GameManager").GetComponent<MainGameManagerScript>().playerLives - 1;
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
+            */
+        }
+        else if (collision.gameObject.CompareTag("WitchEnemy"))
+        {
+            gameManagerScript.playerDeath();
         }
     }
 }

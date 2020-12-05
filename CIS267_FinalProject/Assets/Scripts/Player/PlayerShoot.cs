@@ -23,9 +23,10 @@ public class PlayerShoot : MonoBehaviour
     //This is the current arrow type selected
     private GameObject selectedArrow;
 
-
+    //Other Objects
     private Animator playerSpriteAnimator;
     private FinalPlayerMovement playerMovementScript;
+    private MainGameManagerScript gameManagerScript;
 
     private float arrowTimer;
     private bool shooting;
@@ -52,16 +53,29 @@ public class PlayerShoot : MonoBehaviour
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerMovementScript = GetComponent<FinalPlayerMovement>();
+        gameManagerScript = GameObject.Find("GameManager").GetComponent<MainGameManagerScript>();
         playerSpriteAnimator = this.gameObject.transform.GetChild(0).GetComponent<Animator>();
         arrowTimer = 0;
         shooting = false;
         arrowFired = false;
         selectedArrow = basicArrow;
 
-        //----------------TEMP----------------
-         unlockedPlatformArrows = false;
-         unlockedZiplineArrows = false;
-         unlockedFireArrows = false;
+
+
+
+        try
+        {
+            unlockedPlatformArrows = gameManagerScript.getHasPlatformArrows();
+            unlockedZiplineArrows = gameManagerScript.getHasZiplineArrows();
+            unlockedFireArrows = gameManagerScript.getHasFireArrows();
+        }
+        catch
+        {
+            unlockedPlatformArrows = false;
+            unlockedZiplineArrows = false;
+            unlockedFireArrows = false;
+        }
+
 
     }
 
@@ -288,14 +302,17 @@ public class PlayerShoot : MonoBehaviour
     public void setUnlockedPlatformArrows(bool p)
     {
         unlockedPlatformArrows = p;
+        gameManagerScript.setHasPlatformArrows(true);
     }
     public void setUnlockedZiplineArrows(bool z)
     {
         unlockedZiplineArrows = z;
+        gameManagerScript.setHasZiplineArrows(true);
     }
     public void setUnlockedFireArrows(bool f)
     {
         unlockedFireArrows = f;
+        gameManagerScript.setHasFireArrows(true);
     }
 
 

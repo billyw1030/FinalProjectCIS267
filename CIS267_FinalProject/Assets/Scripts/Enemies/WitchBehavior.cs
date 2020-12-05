@@ -22,7 +22,7 @@ public class WitchBehavior : MonoBehaviour
     public float upwardVelocity;
 
     //Const
-    private const float attackDistance = .75f;
+    private const float attackDistance = 1.25f;
     private const float potionXDifference = 0.1194587f;
     private const float potionYDifference = 0.0082588f;
 
@@ -345,6 +345,8 @@ public class WitchBehavior : MonoBehaviour
         }
     }
 
+
+    //Temporary test for witch animations/textures. Most likely no longer needed
     /*
     private void updateSprite()
     {

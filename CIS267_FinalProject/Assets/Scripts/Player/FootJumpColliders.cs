@@ -12,13 +12,22 @@ public class FootJumpColliders : MonoBehaviour
 
     //Objects
     private Animator playerSpriteAnimator;
+    private MainGameManagerScript gameManagerScript;
 
     // Start is called before the first frame update
     void Start()
     {
         objectsCollided = 0;
-
         playerSpriteAnimator = this.gameObject.transform.parent.gameObject.transform.GetChild(0).GetComponent<Animator>();
+
+        try
+        {
+            gameManagerScript = GameObject.Find("GameManager").GetComponent<MainGameManagerScript>();
+        }
+        catch
+        {
+            Debug.Log("Cannot Find GameManager");
+        }
     }
 
     // Update is called once per frame
@@ -61,12 +70,12 @@ public class FootJumpColliders : MonoBehaviour
 
             try
             {
-                DontDestroyOnLoad(GameObject.Find("GameManager"));
-                SceneManager.LoadScene("Level3");
+                gameManagerScript.playerDeath();
             }
             catch
             {
                 //for testing
+                Debug.Log("UNABLE TO FIND GAME MANAGER");
                 this.gameObject.transform.parent.gameObject.transform.position = new Vector2(0.3f, -0.8f);
             }
 

@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuNavigation : MonoBehaviour
 {
+    MainGameManagerScript gameManagerScript;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManagerScript = GameObject.Find("GameManager").GetComponent<MainGameManagerScript>();
     }
 
     // Update is called once per frame
@@ -21,9 +23,8 @@ public class MenuNavigation : MonoBehaviour
     }
     public void loadGame()
     {
-        DontDestroyOnLoad(GameObject.Find("GameManager"));
-        GameObject.Find("GameManager").GetComponent<MainGameManagerScript>().playerLives = 3;
-        SceneManager.LoadScene("Level1");
+        gameManagerScript.resetPlayer();
+        gameManagerScript.startCurrentLevel();
         //Debug.Log("ButtonClicked");
     }
 
