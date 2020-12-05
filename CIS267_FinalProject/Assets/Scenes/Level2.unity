@@ -3394,7 +3394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3653336934473021313, guid: 59f244d192c349640beebe6275ffc55d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5362353
+      value: -2.523
       objectReference: {fileID: 0}
     - target: {fileID: 3653336934473021313, guid: 59f244d192c349640beebe6275ffc55d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3451,6 +3451,10 @@ PrefabInstance:
     - target: {fileID: 3653336934473021315, guid: 59f244d192c349640beebe6275ffc55d, type: 3}
       propertyPath: m_Mass
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653336934473021315, guid: 59f244d192c349640beebe6275ffc55d, type: 3}
+      propertyPath: m_Constraints
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3653336934473021342, guid: 59f244d192c349640beebe6275ffc55d, type: 3}
       propertyPath: m_Name
@@ -19667,6 +19671,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1921113887}
+    - target: {fileID: 3653336934473021315, guid: 59f244d192c349640beebe6275ffc55d, type: 3}
+      propertyPath: m_Constraints
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3653336934473021342, guid: 59f244d192c349640beebe6275ffc55d, type: 3}
       propertyPath: m_Name
       value: Golem (1)
