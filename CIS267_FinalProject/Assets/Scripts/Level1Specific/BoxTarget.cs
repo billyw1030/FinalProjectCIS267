@@ -17,7 +17,7 @@ public class BoxTarget : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D boxDrop)
+    private void OnTriggerEnter2D(Collider2D boxDrop)
     {
         if(boxDrop.gameObject.CompareTag("Arrow") || boxDrop.gameObject.CompareTag("FireArrow"))
         {

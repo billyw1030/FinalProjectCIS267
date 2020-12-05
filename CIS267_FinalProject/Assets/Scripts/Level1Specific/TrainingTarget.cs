@@ -17,7 +17,7 @@ public class TrainingTarget : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D trainingTarget)
+    private void OnTriggerEnter2D(Collider2D trainingTarget)
     {
         if (trainingTarget.gameObject.CompareTag("Arrow"))
         {

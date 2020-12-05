@@ -19,7 +19,7 @@ public class TreeFall : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D treeCollision)
+    private void OnTriggerEnter2D(Collider2D treeCollision)
     {
         if(treeCollision.gameObject.CompareTag("Arrow"))
         {
