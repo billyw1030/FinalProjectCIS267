@@ -242,7 +242,6 @@ public class WitchBehavior : MonoBehaviour
 
             if (randNum <= 2)
             {
-                Debug.Log("Decided to wait");
                 //wait
                 waiting = true;
             }
@@ -287,7 +286,6 @@ public class WitchBehavior : MonoBehaviour
 
     private void moveToPlayer(float d)
     {
-        Debug.Log("Moving to player");
 
         if(player.transform.position.x > this.gameObject.transform.position.x)
         {
