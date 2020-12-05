@@ -142,4 +142,32 @@ public class MainGameManagerScript : MonoBehaviour
     {
         Debug.Log("Game Manager has been located");
     }
+
+    private void cheatSceneTester()
+    {
+        if(Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            currentLevel = "Level1";
+            hasPlatformArrows = false;
+            hasZiplineArrows = false;
+            hasFireArrows = false;
+            startCurrentLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            currentLevel = "Level2";
+            hasPlatformArrows = true;
+            hasZiplineArrows = false;
+            hasFireArrows = false;
+            startCurrentLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            currentLevel = "Level3";
+            hasPlatformArrows = true;
+            hasZiplineArrows = true;
+            hasFireArrows = false;
+            startCurrentLevel();
+        }
+    }
 }
