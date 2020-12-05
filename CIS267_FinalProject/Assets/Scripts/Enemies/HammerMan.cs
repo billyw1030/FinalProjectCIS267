@@ -15,10 +15,16 @@ public class HammerMan : MonoBehaviour
     private Animator HammerAnim;
     private int num;
     private float distance;
-    private float attackRange = 0.5f;
+    private float attackRange = 1.0f;
+
+
+    private bool isAlive;
+    private bool isAttacking;
 
     private void Start()
     {
+        isAlive = true;
+        isAttacking = false;
         //this.enemySprite = this.GetComponent<SpriteRenderer>();
         //HammerAnim = transform.Find("HammerManTest").GetComponent<Animator>();
         //HammerAnim = MainSprite.GetComponent<Animator>();
@@ -29,41 +35,39 @@ public class HammerMan : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
 
-        if (HammerAnim.GetBool("TimeToAttack") == false && HammerAnim.GetBool("TimeToSpin") == false && HammerAnim.GetBool("IsDead") == false)
+        if (isAlive)
         {
             distance = getPlayerDistance();
 
-            if (distance > 0)
-            {
-                HammerAnim.SetBool("IsWalking", true);
-                this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
-                //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
-                this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = false;
-            }
-            else if (distance < 0)
-            {
-                HammerAnim.SetBool("IsWalking", true);
-                this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed * -1, 0);
-                //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
-                this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = true;
-            }
-            else if (distance == attackRange || distance == attackRange * -1)
-            {
-                Debug.Log("Im less than .5");
-                HammerAnim.SetBool("IsWalking", false);
-                num = Random.Range(1, 3);
-
-                if (num == 1)
+            if (!isAttacking)
+            { 
+                if (distance > 0)
                 {
-                   Debug.Log("FirstAttack");
-                   HammerAnim.SetBool("TimeToAttack", true);
+                    Debug.Log("Chasing from Left");
+                    HammerAnim.SetBool("IsWalking", true);
+                    this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
+                    //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
+                    this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = false;
                 }
-                else if (num == 2)
+                else if (distance < 0)
                 {
-                   Debug.Log("SecondAttack");
-                   HammerAnim.SetBool("TimeToSpin", true);
+                    Debug.Log("Chasing from Right");
+                    HammerAnim.SetBool("IsWalking", true);
+                    this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed * -1, 0);
+                    //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
+                    this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = true;
+                }
+                else if (Mathf.Abs(distance) <= attackRange)
+                {
+                    
+                    Debug.Log("Im less than .5");
+                    HammerAnim.SetBool("IsWalking", false);
+                    
+                    Debug.Log("FirstAttack");
+                    HammerAnim.SetBool("TimeToAttack", true);
+                    isAttacking = true;
                 }
             }
 
