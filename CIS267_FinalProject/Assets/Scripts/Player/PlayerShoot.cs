@@ -315,5 +315,10 @@ public class PlayerShoot : MonoBehaviour
         gameManagerScript.setHasFireArrows(true);
     }
 
+    public GameObject getSelectedArrow()
+    {
+        return selectedArrow;
+    }
+
 
 }

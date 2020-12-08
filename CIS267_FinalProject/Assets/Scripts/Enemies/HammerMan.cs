@@ -46,7 +46,7 @@ public class HammerMan : MonoBehaviour
                 if (Mathf.Abs(distance) <= attackRange)
                 {
 
-                    Debug.Log("Im less than .5");
+                    //Debug.Log("Im less than .5");
                     HammerAnim.SetBool("IsWalking", false);
 
                     Debug.Log("FirstAttack");
@@ -55,7 +55,7 @@ public class HammerMan : MonoBehaviour
                 }
                 else if (distance > 0)
                 {
-                    Debug.Log("Chasing from Left");
+                    //Debug.Log("Chasing from Left");
                     HammerAnim.SetBool("IsWalking", true);
                     this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
                     //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
@@ -63,7 +63,7 @@ public class HammerMan : MonoBehaviour
                 }
                 else if (distance < 0)
                 {
-                    Debug.Log("Chasing from Right");
+                    //Debug.Log("Chasing from Right");
                     HammerAnim.SetBool("IsWalking", true);
                     this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed * -1, 0);
                     //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);

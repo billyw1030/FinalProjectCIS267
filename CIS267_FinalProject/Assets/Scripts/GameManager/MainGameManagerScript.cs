@@ -10,7 +10,17 @@ public class MainGameManagerScript : MonoBehaviour
     private bool hasPlatformArrows;
     private bool hasZiplineArrows;
     private bool hasFireArrows;
+    private bool cheatStatus;
     private string currentLevel;
+
+    //Public Prefab Objects
+    //public GameObject basicArrow;
+    //public GameObject platformArrow;
+    //public GameObject ziplineArrow;
+    //public GameObject fireArrow;
+
+
+    //private GameObject selectedArrow;
 
     //Game Options
     private int startingPlayerLives = 10;
@@ -20,20 +30,28 @@ public class MainGameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //selectedArrow = GameObject.Find("Player").GetComponent<PlayerShoot>().getSelectedArrow();
         hasPlatformArrows = false;
         hasZiplineArrows = false;
         hasFireArrows = false;
         currentLevel = "Level1";
+        cheatStatus = false;
 
         //Temp
         playerLives = startingPlayerLives;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        cheatSceneTester();
+        if (cheatStatus == true)
+        {
+            cheatSceneTester();
+        }
     }
+
 
 
     //Getters
@@ -57,6 +75,10 @@ public class MainGameManagerScript : MonoBehaviour
 
     //Setters
 
+    public void setCheatStatus(bool c)
+    {
+        cheatStatus = c;
+    }
     public void setPlayerLives(int l)
     {
         playerLives = l;
@@ -122,6 +144,7 @@ public class MainGameManagerScript : MonoBehaviour
         else
         {
             SceneManager.LoadScene("GameOver");
+            Time.timeScale = 1;
         }
 
 
@@ -170,4 +193,37 @@ public class MainGameManagerScript : MonoBehaviour
             startCurrentLevel();
         }
     }
+
+    //private void mainUI()
+    //{
+    //    if (selectedArrow == basicArrow)
+    //    {
+    //        GameObject.Find("BasicArrowSelected").SetActive(true);
+    //        GameObject.Find("PlatformArrowSelected").SetActive(false);
+    //        GameObject.Find("ZiplineArrowSelected").SetActive(false);
+    //        GameObject.Find("FireArrowSelected").SetActive(false);
+    //    }
+    //    else if (selectedArrow == platformArrow)
+    //    {
+    //        GameObject.Find("BasicArrowSelected").SetActive(false);
+    //        GameObject.Find("PlatformArrowSelected").SetActive(true);
+    //        GameObject.Find("ZiplineArrowSelected").SetActive(false);
+    //        GameObject.Find("FireArrowSelected").SetActive(false);
+    //    }
+    //    else if (selectedArrow == ziplineArrow)
+    //    {
+    //        GameObject.Find("BasicArrowSelected").SetActive(false);
+    //        GameObject.Find("PlatformArrowSelected").SetActive(false);
+    //        GameObject.Find("ZiplineArrowSelected").SetActive(true);
+    //        GameObject.Find("FireArrowSelected").SetActive(false);
+    //    }
+    //    else if (selectedArrow == fireArrow)
+    //    {
+    //        GameObject.Find("BasicArrowSelected").SetActive(false);
+    //        GameObject.Find("PlatformArrowSelected").SetActive(false);
+    //        GameObject.Find("ZiplineArrowSelected").SetActive(false);
+    //        GameObject.Find("FireArrowSelected").SetActive(true);
+    //    }
+        
+    //}
 }

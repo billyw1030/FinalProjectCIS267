@@ -30,6 +30,11 @@ TagManager:
   - WitchEnemy
   - Potion
   - Background
+  - ShowOnPause
+  - FirstPointer
+  - SecondPointer
+  - ThirdPointer
+  - FourthPointer
   layers:
   - Default
   - TransparentFX
@@ -66,4 +71,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: PlayerInformation
+    uniqueID: 110610963
     locked: 0
