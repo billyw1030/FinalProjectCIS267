@@ -33,7 +33,7 @@ public class MenuNavigation : MonoBehaviour
     void Update()
     {
         //Pause Menu Stuff
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
         }
