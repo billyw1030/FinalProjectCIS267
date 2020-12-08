@@ -41,10 +41,24 @@ public class FinalPlayerMovement : MonoBehaviour
     void Update()
     {
         movePlayerLateral();
+        changeDirection();
         jump();
         advancedJump(); //Modifies (and requires) jump to feel better
     }
 
+    private void changeDirection()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && isFacingRight)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+            isFacingRight = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && !isFacingRight)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+            isFacingRight = true;
+        }
+    }
     private void movePlayerLateral()
     {
         moveHorizontal = Input.GetAxisRaw("Horizontal");
