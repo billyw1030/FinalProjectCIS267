@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainGameManagerScript : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class MainGameManagerScript : MonoBehaviour
     //private GameObject selectedArrow;
 
     //Game Options
-    private int startingPlayerLives = 10;
+    private int startingPlayerLives = 5;
 
 
 
@@ -31,6 +32,7 @@ public class MainGameManagerScript : MonoBehaviour
     void Start()
     {
         //selectedArrow = GameObject.Find("Player").GetComponent<PlayerShoot>().getSelectedArrow();
+
         hasPlatformArrows = false;
         hasZiplineArrows = false;
         hasFireArrows = false;
@@ -50,6 +52,7 @@ public class MainGameManagerScript : MonoBehaviour
         {
             cheatSceneTester();
         }
+
     }
 
 
@@ -191,6 +194,11 @@ public class MainGameManagerScript : MonoBehaviour
             hasZiplineArrows = true;
             hasFireArrows = false;
             startCurrentLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            Debug.Log("life Added");
+            playerLives += 1;
         }
     }
 
