@@ -85,5 +85,10 @@ public class PlayerCollisions : MonoBehaviour
         {
             gameManagerScript.playerDeath();
         }
+        else if (collision.gameObject.CompareTag("Life"))
+        {
+            gameManagerScript.playerLifeUp();
+            Destroy(collision.gameObject);
+        }
     }
 }

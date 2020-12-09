@@ -64,29 +64,29 @@ public class OnScreenUI : MonoBehaviour
         if(selectedArrow == playerShootScript.basicArrow)
         {
             baseArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            platArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            zipArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            flameArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            platArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            zipArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            flameArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
         }
         else if (selectedArrow == playerShootScript.platformArrow)
         {
-            baseArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            baseArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
             platArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            zipArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            flameArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            zipArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            flameArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
         }
         else if (selectedArrow == playerShootScript.ziplineArrow)
         {
-            baseArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            platArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            baseArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            platArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
             zipArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            flameArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            flameArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
         }
         else if (selectedArrow == playerShootScript.fireArrow)
         {
-            baseArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            platArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            zipArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            baseArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            platArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            zipArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
             flameArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         }
     }
@@ -112,8 +112,8 @@ public class OnScreenUI : MonoBehaviour
             heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
 
-            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
-            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.15f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.15f);
         }
         else if (lives == 4)
         {
@@ -121,55 +121,55 @@ public class OnScreenUI : MonoBehaviour
             heartTwo.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
 
-            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
-            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.15f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.15f);
         }
         else if (lives == 3)
         {
             heartOne.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartTwo.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
 
-            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
-            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.15f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.15f);
         }
         else if (lives == 2)
         {
             heartOne.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartTwo.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
 
-            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
-            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.15f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.15f);
 
         }
         else if (lives == 1)
         {
             heartOne.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            heartTwo.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            heartTwo.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
 
-            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
-            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.15f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.15f);
         }
         else if (lives == 0)
         {
-            heartOne.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            heartTwo.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            heartOne.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            heartTwo.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+            heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
 
-            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
-            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.15f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.15f);
         }
 
     }

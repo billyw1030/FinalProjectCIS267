@@ -31,10 +31,11 @@ TagManager:
   - Potion
   - Background
   - ShowOnPause
+  - Life
   - FirstPointer
-  - SecondPointer
-  - ThirdPointer
   - FourthPointer
+  - ThirdPointer
+  - SecondPointer
   layers:
   - Default
   - TransparentFX
