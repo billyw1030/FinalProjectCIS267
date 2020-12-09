@@ -117,8 +117,14 @@ public class MainGameManagerScript : MonoBehaviour
         SceneManager.LoadScene(currentLevel);
     }
 
-    //Gamefunctions
-    public void playerDeath()
+    public void playerLifeUp()
+    {
+        playerLives = playerLives + 1;
+        Debug.Log("Player Life Up! Player now has " + playerLives + " lives remaining");
+    }
+
+        //Gamefunctions
+        public void playerDeath()
     {
         playerLives = playerLives - 1;
         Debug.Log("Player Death. Player now has " + playerLives + " lives remaining");

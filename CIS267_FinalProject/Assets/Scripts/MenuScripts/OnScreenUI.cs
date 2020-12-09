@@ -25,6 +25,9 @@ public class OnScreenUI : MonoBehaviour
     private GameObject zipArrow;
     private GameObject flameArrow;
 
+    private GameObject crossOne;
+    private GameObject crossTwo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +44,9 @@ public class OnScreenUI : MonoBehaviour
         platArrow = GameObject.Find("PlatArrow");
         zipArrow = GameObject.Find("ZipArrow");
         flameArrow = GameObject.Find("FlameArrow");
+
+        crossOne = GameObject.Find("CrossOne");
+        crossTwo = GameObject.Find("CrossTwo");
     }
 
     // Update is called once per frame
@@ -87,13 +93,27 @@ public class OnScreenUI : MonoBehaviour
 
     private void lifeDisplayer(int lives)
     {
-        if(lives == 5)
+        if (lives > 5)
         {
             heartOne.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartTwo.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 1f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 1f);
+        }
+        else if (lives == 5)
+        {
+            heartOne.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            heartTwo.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
         }
         else if (lives == 4)
         {
@@ -102,6 +122,9 @@ public class OnScreenUI : MonoBehaviour
             heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
         }
         else if (lives == 3)
         {
@@ -110,6 +133,9 @@ public class OnScreenUI : MonoBehaviour
             heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
         }
         else if (lives == 2)
         {
@@ -119,6 +145,9 @@ public class OnScreenUI : MonoBehaviour
             heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
 
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+
         }
         else if (lives == 1)
         {
@@ -127,6 +156,9 @@ public class OnScreenUI : MonoBehaviour
             heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
         }
         else if (lives == 0)
         {
@@ -135,7 +167,11 @@ public class OnScreenUI : MonoBehaviour
             heartThree.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             heartFour.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             heartFive.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+
+            crossOne.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
+            crossTwo.GetComponent<SpriteRenderer>().color = new Color(0f, 92, 0, 0.5f);
         }
+
     }
 }
 
