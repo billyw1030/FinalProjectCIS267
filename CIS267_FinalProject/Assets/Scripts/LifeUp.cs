@@ -17,13 +17,18 @@ public class LifeUp : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("life up");
             gameManagerScript.playerLifeUp();
             Destroy(this.gameObject);
         }
+    }
+
+    public void levelSurvived()
+    {
+        gameManagerScript.playerLifeUp();
     }
 }

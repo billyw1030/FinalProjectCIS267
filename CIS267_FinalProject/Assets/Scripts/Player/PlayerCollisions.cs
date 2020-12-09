@@ -7,6 +7,7 @@ public class PlayerCollisions : MonoBehaviour
 {
     //Objects
     MainGameManagerScript gameManagerScript;
+    LifeUp lifeScript;
 
     private bool keyObtained = false;
 
@@ -14,6 +15,7 @@ public class PlayerCollisions : MonoBehaviour
     void Start()
     {
         gameManagerScript = GameObject.Find("GameManager").GetComponent<MainGameManagerScript>();
+        lifeScript = GameObject.Find("GameManager").GetComponent<LifeUp>();
     }
 
     // Update is called once per frame
@@ -32,11 +34,13 @@ public class PlayerCollisions : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Door") && keyObtained == true)
         {
+            lifeScript.levelSurvived();
             gameManagerScript.setCurrentLevel("Level2");
             gameManagerScript.startCurrentLevel();
         }
         else if (other.gameObject.CompareTag("loadnext"))
         {
+            lifeScript.levelSurvived();
             gameManagerScript.setCurrentLevel("Level3");
             gameManagerScript.startCurrentLevel();
 

@@ -554,27 +554,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Death_strip_14
-      rect:
-        serializedVersion: 2
-        x: 2313
-        y: 22
-        width: 5
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64f4236f0390c8b50800000000000000
-      internalID: 6596657660084506438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: spr_Death_strip_15
       rect:
         serializedVersion: 2
@@ -591,27 +570,6 @@ TextureImporter:
       bones: []
       spriteID: 822a7da9b6f515640800000000000000
       internalID: 5066935971532481064
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_Death_strip_16
-      rect:
-        serializedVersion: 2
-        x: 2485
-        y: 24
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53ac1cd812c9a22b0800000000000000
-      internalID: -5608498718010389963
       vertices: []
       indices: 
       edges: []

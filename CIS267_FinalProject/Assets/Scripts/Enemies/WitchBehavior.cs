@@ -379,6 +379,21 @@ public class WitchBehavior : MonoBehaviour
     }
     */
 
+    //Level 1 Specific
+    private void OnTriggerEnter2D(Collider2D trigger)
+    {
+        if(trigger.gameObject.CompareTag("FallingTree"))
+        {
+            witchRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            isAlive = false;
+            witchRigidBody.velocity = new Vector2(0, witchRigidBody.velocity.y);
+            moving = false;
+            waiting = false;
+            waitTimer = 0;
+            witchAnimator.SetBool("isDead", true);
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

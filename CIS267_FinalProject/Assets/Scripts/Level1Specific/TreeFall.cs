@@ -27,9 +27,5 @@ public class TreeFall : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
             Destroy(this.gameObject);
         }
-        if(treeCollision.gameObject.CompareTag("WitchEnemy"))
-        {
-            Destroy(treeCollision);
-        }
     }
 }
