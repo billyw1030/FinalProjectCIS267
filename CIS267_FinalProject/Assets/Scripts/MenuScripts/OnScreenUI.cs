@@ -61,12 +61,38 @@ public class OnScreenUI : MonoBehaviour
 
     private void arrowDisplayer(GameObject selectedArrow)
     {
+
         if(selectedArrow == playerShootScript.basicArrow)
         {
             baseArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             platArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
             zipArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
             flameArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+
+            if (gameManagerScript.getHasPlatformArrows() == false)
+            {
+                platArrow.SetActive(false);
+            }
+            else
+            {
+                platArrow.SetActive(true);
+            }
+            if (gameManagerScript.getHasZiplineArrows() == false)
+            {
+                zipArrow.SetActive(false);
+            }
+            else
+            {
+                zipArrow.SetActive(true);
+            }
+            if (gameManagerScript.getHasFireArrows() == false)
+            {
+                flameArrow.SetActive(false);
+            }
+            else
+            {
+                flameArrow.SetActive(true);
+            }
         }
         else if (selectedArrow == playerShootScript.platformArrow)
         {
@@ -74,6 +100,31 @@ public class OnScreenUI : MonoBehaviour
             platArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             zipArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
             flameArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+
+            if (gameManagerScript.getHasPlatformArrows() == false)
+            {
+                platArrow.SetActive(false);
+            }
+            else
+            {
+                platArrow.SetActive(true);
+            }
+            if (gameManagerScript.getHasZiplineArrows() == false)
+            {
+                zipArrow.SetActive(false);
+            }
+            else
+            {
+                zipArrow.SetActive(true);
+            }
+            if (gameManagerScript.getHasFireArrows() == false)
+            {
+                flameArrow.SetActive(false);
+            }
+            else
+            {
+                flameArrow.SetActive(true);
+            }
         }
         else if (selectedArrow == playerShootScript.ziplineArrow)
         {
@@ -81,6 +132,31 @@ public class OnScreenUI : MonoBehaviour
             platArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
             zipArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             flameArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
+
+            if (gameManagerScript.getHasPlatformArrows() == false)
+            {
+                platArrow.SetActive(false);
+            }
+            else
+            {
+                platArrow.SetActive(true);
+            }
+            if (gameManagerScript.getHasZiplineArrows() == false)
+            {
+                zipArrow.SetActive(false);
+            }
+            else
+            {
+                zipArrow.SetActive(true);
+            }
+            if (gameManagerScript.getHasFireArrows() == false)
+            {
+                flameArrow.SetActive(false);
+            }
+            else
+            {
+                flameArrow.SetActive(true);
+            }
         }
         else if (selectedArrow == playerShootScript.fireArrow)
         {
@@ -88,6 +164,31 @@ public class OnScreenUI : MonoBehaviour
             platArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
             zipArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.15f);
             flameArrow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
+            if (gameManagerScript.getHasPlatformArrows() == false)
+            {
+                platArrow.SetActive(false);
+            }
+            else
+            {
+                platArrow.SetActive(true);
+            }
+            if (gameManagerScript.getHasZiplineArrows() == false)
+            {
+                zipArrow.SetActive(false);
+            }
+            else
+            {
+                zipArrow.SetActive(true);
+            }
+            if (gameManagerScript.getHasFireArrows() == false)
+            {
+                flameArrow.SetActive(false);
+            }
+            else
+            {
+                flameArrow.SetActive(true);
+            }
         }
     }
 
