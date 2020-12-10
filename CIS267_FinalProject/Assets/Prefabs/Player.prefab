@@ -203,8 +203,9 @@ MonoBehaviour:
   ziplineArrow: {fileID: 6556956235806267571, guid: 876862adeaf451643b46a2126c94a9db, type: 3}
   fireArrow: {fileID: 7654019137262373994, guid: a32f2684e67f4ad4dbf3d4c43364ebd0, type: 3}
   arrowVelocity: 10
-  shootingDelay: 0.6
-  animationLength: 0.5
+  shootingDelay: 0.63
+  animationLength: 0.84
+  decisionDelay: 0.3
 --- !u!114 &1928257969378292316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +234,7 @@ MonoBehaviour:
   fallMultiplier: 1.5
   lowJumpMultiplier: 2.5
   jumpForce: 4
+  shootSlowDown: 0.25
 --- !u!1 &8110274030907013402
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class FinalPlayerMovement : MonoBehaviour
     public float fallMultiplier;
     public float lowJumpMultiplier;
     public float jumpForce;
+    public float shootSlowDown;
 
     //Components
     private Rigidbody2D playerRigidBody;
@@ -18,8 +19,9 @@ public class FinalPlayerMovement : MonoBehaviour
     //State Values values
     private float moveHorizontal;
 
-    bool isFacingRight;
+    private bool isFacingRight;
     private float objectsCollided;
+    private bool isSlowed;
 
     //Key Codes
     KeyCode jumpKey = KeyCode.Space;
@@ -31,7 +33,7 @@ public class FinalPlayerMovement : MonoBehaviour
         playerSpriteAnimator = this.gameObject.transform.GetChild(0).GetComponent<Animator>();
         jumpColliderScript = this.gameObject.transform.GetChild(1).GetComponent<FootJumpColliders>();
 
-
+        isSlowed = false;
         isFacingRight = true; //Watch Out!
 
         //Ignore the feet collisions
@@ -63,7 +65,14 @@ public class FinalPlayerMovement : MonoBehaviour
     {
         moveHorizontal = Input.GetAxisRaw("Horizontal");
 
-        playerRigidBody.velocity = new Vector2(movementSpeed * moveHorizontal, playerRigidBody.velocity.y);
+        if (isSlowed)
+        {
+            playerRigidBody.velocity = new Vector2(movementSpeed * moveHorizontal * shootSlowDown, playerRigidBody.velocity.y);
+        }
+        else
+        {
+            playerRigidBody.velocity = new Vector2(movementSpeed * moveHorizontal, playerRigidBody.velocity.y);
+        }
 
         playerDirection(moveHorizontal);
 
@@ -129,6 +138,11 @@ public class FinalPlayerMovement : MonoBehaviour
     public bool getIsFacingRight()
     {
         return isFacingRight;
+    }
+
+    public void setIsSlowed(bool s)
+    {
+        isSlowed = s;
     }
 
 }

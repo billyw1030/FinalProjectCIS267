@@ -1,6 +1,7 @@
 ﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerShoot : MonoBehaviour
     public float arrowVelocity;
     public float shootingDelay;
     public float animationLength;
+    public float decisionDelay;
 
 
     private Rigidbody2D playerRigidBody;
@@ -31,6 +33,7 @@ public class PlayerShoot : MonoBehaviour
     private float arrowTimer;
     private bool shooting;
     private bool arrowFired;
+    private bool holding;
 
     private bool unlockedPlatformArrows;
     private bool unlockedZiplineArrows;
@@ -48,6 +51,7 @@ public class PlayerShoot : MonoBehaviour
     KeyCode leftCycle = KeyCode.LeftShift;
     KeyCode rightCycle = KeyCode.X;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,9 +62,8 @@ public class PlayerShoot : MonoBehaviour
         arrowTimer = 0;
         shooting = false;
         arrowFired = false;
+        holding = false;
         selectedArrow = basicArrow;
-
-
 
 
         try
@@ -102,30 +105,57 @@ public class PlayerShoot : MonoBehaviour
 
         if (shooting == true)
         {
-            arrowTimer += Time.deltaTime;
+            //Ensures animation gets a chance to finish if arrow is held
+            if (holding == false)
+            {
+                arrowTimer += Time.deltaTime;
+            }
+
+            //This part is to make sure the hold animation is ready to take over if the player is planning on holding the arrow before the fire logic begins
+            //Is needed because the inital animation ends before the arrow fires (so the player can hold it)
+            if(arrowTimer >= decisionDelay && Input.GetKey(shootKey) == true)
+            {
+                playerSpriteAnimator.SetBool("isHolding", true);
+                playerMovementScript.setIsSlowed(true);
+            }
 
             if(arrowTimer >= shootingDelay)
             {
                 if (arrowFired == false)
                 {
-                    currentArrow = Instantiate(selectedArrow);
-                    
-                    if (playerMovementScript.getIsFacingRight())
+                    if (Input.GetKey(shootKey) == false)
                     {
-                        currentArrow.transform.position = new Vector3(this.gameObject.transform.position.x + 0.5f / 5, this.gameObject.transform.position.y + 0.15f / 5);
-                        currentArrow.GetComponent<Rigidbody2D>().velocity = new Vector3(arrowVelocity, 0, 0);
+                        //Shoot now!
+                        currentArrow = Instantiate(selectedArrow);
+
+                        if (playerMovementScript.getIsFacingRight())
+                        {
+                            currentArrow.transform.position = new Vector3(this.gameObject.transform.position.x + 0.5f / 5, this.gameObject.transform.position.y + 0.15f / 5);
+                            currentArrow.GetComponent<Rigidbody2D>().velocity = new Vector3(arrowVelocity, 0, 0);
+                        }
+                        else
+                        {
+                            currentArrow.transform.position = new Vector3(this.gameObject.transform.position.x - 0.5f / 5, this.gameObject.transform.position.y + 0.15f / 5);
+                            currentArrow.transform.localScale = new Vector3(-currentArrow.transform.localScale.x, currentArrow.transform.localScale.y, currentArrow.transform.localScale.z);
+                            currentArrow.GetComponent<Rigidbody2D>().velocity = new Vector3(-arrowVelocity, 0, 0);
+                        }
+
+                        arrowFired = true;
+                        holding = false;
+                        playerSpriteAnimator.SetBool("isHolding", false);
                     }
                     else
                     {
-                        currentArrow.transform.position = new Vector3(this.gameObject.transform.position.x - 0.5f / 5, this.gameObject.transform.position.y + 0.15f / 5);
-                        currentArrow.transform.localScale = new Vector3(-currentArrow.transform.localScale.x, currentArrow.transform.localScale.y, currentArrow.transform.localScale.z);
-                        currentArrow.GetComponent<Rigidbody2D>().velocity = new Vector3(-arrowVelocity, 0, 0);
+                        //Finishes setting the condition to holding
+                        holding = true;
+                        playerSpriteAnimator.SetBool("isHolding", true);
+
                     }
-                    
-                    arrowFired = true;
                 }
                 else
                 {
+                    playerMovementScript.setIsSlowed(false);
+
                     //This section finishes the animation
 
                     if (arrowTimer >= animationLength)
@@ -296,6 +326,8 @@ public class PlayerShoot : MonoBehaviour
         }
         
     }
+
+
 
     //Getters and Setters
 
