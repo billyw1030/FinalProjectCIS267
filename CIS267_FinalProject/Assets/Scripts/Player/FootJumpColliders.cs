@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 //Temp
@@ -13,6 +14,7 @@ public class FootJumpColliders : MonoBehaviour
     //Objects
     private Animator playerSpriteAnimator;
     private MainGameManagerScript gameManagerScript;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,7 @@ public class FootJumpColliders : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -53,33 +55,36 @@ public class FootJumpColliders : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Animations
-        if(objectsCollided <= 0)
-        {
-            playerSpriteAnimator.SetBool("isJumping", false);
-        }
+        
 
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("PlatformArrow") || collision.gameObject.CompareTag("Box"))
-        {
+            //Animations
+            if (objectsCollided <= 0)
+            {
+                playerSpriteAnimator.SetBool("isJumping", false);
+            }
+
+            if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("PlatformArrow") || collision.gameObject.CompareTag("Box"))
+            {
                 objectsCollided++;
-        }
-        else if (collision.gameObject.CompareTag("BlastZone"))
-        {
-            //TEMPORARY
-            //this.gameObject.transform.parent.gameObject.transform.position = new Vector2(0.3f, -0.8f);
-
-            try
-            {
-                gameManagerScript.playerDeath();
             }
-            catch
+            else if (collision.gameObject.CompareTag("BlastZone"))
             {
-                //for testing
-                Debug.Log("UNABLE TO FIND GAME MANAGER");
-                this.gameObject.transform.parent.gameObject.transform.position = new Vector2(0.3f, -0.8f);
-            }
+                //TEMPORARY
+                //this.gameObject.transform.parent.gameObject.transform.position = new Vector2(0.3f, -0.8f);
 
-        }
+                try
+                {
+                    gameManagerScript.playerDeath();
+                }
+                catch
+                {
+                    //for testing
+                    Debug.Log("UNABLE TO FIND GAME MANAGER");
+                    this.gameObject.transform.parent.gameObject.transform.position = new Vector2(0.3f, -0.8f);
+                }
+
+            }
+       
 
     }
 
@@ -101,8 +106,12 @@ public class FootJumpColliders : MonoBehaviour
     }
 
 
+    //Getters and Setters
+
     public void setObjectsCollided(float o)
     {
         objectsCollided = o;
     }
+
+
 }

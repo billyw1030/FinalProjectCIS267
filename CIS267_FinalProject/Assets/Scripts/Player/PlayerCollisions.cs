@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,12 +11,14 @@ public class PlayerCollisions : MonoBehaviour
     LifeUp lifeScript;
 
     private bool keyObtained = false;
+    private bool drop;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManagerScript = GameObject.Find("GameManager").GetComponent<MainGameManagerScript>();
         lifeScript = GameObject.Find("GameManager").GetComponent<LifeUp>();
+        drop = false;
     }
 
     // Update is called once per frame
@@ -69,26 +72,64 @@ public class PlayerCollisions : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("HammerEnemy"))
+        Debug.Log("Player collision drop is " + drop);
+        if (drop)
         {
-            gameManagerScript.playerDeath();
 
-            /*
 
-            Debug.Log("HammerCollision");
-            GameObject.Find("GameManager").GetComponent<MainGameManagerScript>().playerLives = GameObject.Find("GameManager").GetComponent<MainGameManagerScript>().playerLives - 1;
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
-            */
+            if (collision.gameObject.CompareTag("Ground") == false && collision.gameObject.CompareTag("PlatformArrow") == false && collision.gameObject.CompareTag("Box") == false)
+            {
+                try
+                {
+                    Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<Collider2D>());
+                    Debug.Log("I ignored " + collision.gameObject.name + " because it has tag " + collision.gameObject.tag);
+                }
+                catch
+                {
+                    Debug.Log("Collider Error");
+                }
+            }
+            else
+            {
+                Debug.Log("I touched object " + collision.gameObject.name + " as ground");
+                this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                drop = false;
+            }
         }
-        else if (collision.gameObject.CompareTag("WitchEnemy"))
-        {
-            gameManagerScript.playerDeath();
+        else
+        { 
+            if (collision.gameObject.CompareTag("HammerEnemy"))
+            {
+                gameManagerScript.playerDeath();
+
+                /*
+
+                Debug.Log("HammerCollision");
+                GameObject.Find("GameManager").GetComponent<MainGameManagerScript>().playerLives = GameObject.Find("GameManager").GetComponent<MainGameManagerScript>().playerLives - 1;
+                Scene scene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(scene.name);
+                */
+            }
+            else if (collision.gameObject.CompareTag("WitchEnemy"))
+            {
+                gameManagerScript.playerDeath();
+            }
+            else if (collision.gameObject.CompareTag("Life"))
+            {
+                gameManagerScript.playerLifeUp();
+                Destroy(collision.gameObject);
+            }
+
         }
-        else if (collision.gameObject.CompareTag("Life"))
-        {
-            gameManagerScript.playerLifeUp();
-            Destroy(collision.gameObject);
-        }
+
+    }
+
+    //Getters and Setters
+    public void setDrop(bool d)
+    {
+        Debug.Log("Drop was changed");
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        drop = d;
     }
 }

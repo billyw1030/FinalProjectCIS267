@@ -13,6 +13,9 @@ public class MainGameManagerScript : MonoBehaviour
     private bool hasFireArrows;
     private bool cheatStatus;
     private string currentLevel;
+    private float resetTimer;
+    private bool playerHasDied;
+
 
     //Public Prefab Objects
     //public GameObject basicArrow;
@@ -25,7 +28,7 @@ public class MainGameManagerScript : MonoBehaviour
 
     //Game Options
     private int startingPlayerLives = 5;
-
+    private const float deathWait = 5;
 
 
     // Start is called before the first frame update
@@ -38,6 +41,8 @@ public class MainGameManagerScript : MonoBehaviour
         hasFireArrows = false;
         currentLevel = "Level1";
         cheatStatus = true;
+        resetTimer = 0;
+        playerHasDied = false;
 
         //Temp
         playerLives = startingPlayerLives;
@@ -52,6 +57,20 @@ public class MainGameManagerScript : MonoBehaviour
         {
             cheatSceneTester();
         }
+
+
+        if(playerHasDied)
+        {
+            resetTimer += Time.deltaTime;
+
+            if(resetTimer >= deathWait)
+            {
+                playerHasDied = false;
+                resetTimer = 0;
+                finishDeath();
+            }
+        }
+
 
     }
 
@@ -124,13 +143,37 @@ public class MainGameManagerScript : MonoBehaviour
     }
 
         //Gamefunctions
-        public void playerDeath()
+    public void playerDeath()
     {
-        playerLives = playerLives - 1;
-        Debug.Log("Player Death. Player now has " + playerLives + " lives remaining");
-        if(playerLives > 0)
+        try
         {
-            if(currentLevel == "Level1")
+            GameObject.Find("Player").transform.GetChild(0).GetComponent<Animator>().SetBool("isDead", true);
+            GameObject.Find("Player").GetComponent<FinalPlayerMovement>().enabled = false;
+            GameObject.Find("Player").GetComponent<PlayerCollisions>().enabled = false;
+            GameObject.Find("Player").GetComponent<PlayerShoot>().enabled = false;
+            GameObject.Find("Player").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+            GameObject.Find("Player").GetComponent<PlayerCollisions>().setDrop(true);
+            GameObject.Find("Player").transform.GetChild(1).GetComponent<BoxCollider2D>().enabled = false;
+        }
+        catch
+        {
+            Debug.LogError("Could not locate player");
+        }
+        if (playerHasDied == false)
+        {
+            playerLives = playerLives - 1;
+        }
+        Debug.Log("Player Death. Player now has " + playerLives + " lives remaining");
+        playerHasDied = true;
+
+
+    }
+
+    private void finishDeath()
+    {
+        if (playerLives > 0)
+        {
+            if (currentLevel == "Level1")
             {
                 hasPlatformArrows = false;
                 hasZiplineArrows = false;
@@ -155,8 +198,6 @@ public class MainGameManagerScript : MonoBehaviour
             SceneManager.LoadScene("GameOver");
             Time.timeScale = 1;
         }
-
-
     }
 
     public void resetPlayer()
