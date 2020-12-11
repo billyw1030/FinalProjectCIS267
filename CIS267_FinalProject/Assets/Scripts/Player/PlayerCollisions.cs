@@ -94,7 +94,6 @@ public class PlayerCollisions : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Player collision drop is " + drop);
         if (drop)
         {
 
@@ -104,7 +103,6 @@ public class PlayerCollisions : MonoBehaviour
                 try
                 {
                     Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<Collider2D>());
-                    Debug.Log("I ignored " + collision.gameObject.name + " because it has tag " + collision.gameObject.tag);
                 }
                 catch
                 {
@@ -113,7 +111,6 @@ public class PlayerCollisions : MonoBehaviour
             }
             else
             {
-                Debug.Log("I touched object " + collision.gameObject.name + " as ground");
                 this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 drop = false;
             }
@@ -168,7 +165,6 @@ public class PlayerCollisions : MonoBehaviour
     //Getters and Setters
     public void setDrop(bool d)
     {
-        Debug.Log("Drop was changed");
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
         drop = d;
