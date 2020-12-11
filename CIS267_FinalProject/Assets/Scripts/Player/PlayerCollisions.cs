@@ -10,8 +10,15 @@ public class PlayerCollisions : MonoBehaviour
     MainGameManagerScript gameManagerScript;
     LifeUp lifeScript;
 
+    public AudioClip PlayerDeath;
+    public AudioClip PotionBreak;
+    public AudioClip Swing1;
+    public AudioClip extraheart;
+
     private bool keyObtained = false;
     private bool drop;
+    private float hit = 0;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -51,12 +58,27 @@ public class PlayerCollisions : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("river"))
         {
-
             gameManagerScript.playerDeath();
+            if (hit == 0)
+            {
+                
+                GetComponent<AudioSource>().PlayOneShot(PlayerDeath);
+                hit++;
+            }
+            
+            
         }
         else if (other.gameObject.CompareTag("Potion"))
         {
+           
             gameManagerScript.playerDeath();
+            if (hit == 0)
+            {
+                GetComponent<AudioSource>().PlayOneShot(PotionBreak);
+                GetComponent<AudioSource>().PlayOneShot(PlayerDeath, 3);
+                hit++;
+            }
+            
         }
 
 
@@ -100,7 +122,15 @@ public class PlayerCollisions : MonoBehaviour
         { 
             if (collision.gameObject.CompareTag("HammerEnemy"))
             {
+                
                 gameManagerScript.playerDeath();
+                if (hit == 0)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(Swing1);
+                    GetComponent<AudioSource>().PlayOneShot(PlayerDeath, 3);
+                    hit++;
+                }
+
 
                 /*
 
@@ -112,12 +142,23 @@ public class PlayerCollisions : MonoBehaviour
             }
             else if (collision.gameObject.CompareTag("WitchEnemy"))
             {
+                //GetComponent<AudioSource>().PlayOneShot(PlayerDeath);
                 gameManagerScript.playerDeath();
+                if (hit == 0)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(PlayerDeath);
+                    hit++;
+                }
+                
+
+
             }
             else if (collision.gameObject.CompareTag("Life"))
             {
                 gameManagerScript.playerLifeUp();
+              
                 Destroy(collision.gameObject);
+                GetComponent<AudioSource>().PlayOneShot(extraheart);
             }
 
         }

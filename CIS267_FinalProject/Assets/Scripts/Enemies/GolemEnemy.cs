@@ -12,8 +12,10 @@ public class GolemEnemy : MonoBehaviour
     private bool Startcount=false;
     private GameObject Arrow;
     public GameObject box;
-    
-    
+    public AudioClip Fists;
+    public AudioClip SDeath;
+
+
 
 
 
@@ -35,6 +37,7 @@ public class GolemEnemy : MonoBehaviour
                 GolemAnim.SetBool("IsHit", false);
                 Startcount = false;
                 timeStart = 0;
+                GetComponent<AudioSource>().PlayOneShot(Fists, 1);
                 
             }
 
@@ -66,9 +69,10 @@ public class GolemEnemy : MonoBehaviour
         {
             Destroy(box);
             GolemAnim.SetBool("IsDead", true);
+            GetComponent<AudioSource>().PlayOneShot(SDeath, 1);
             //Destroy(gameObject.GetComponent<BoxCollider2D>());
-            
-            
+
+
 
             Destroy(this.gameObject, 2.15f);
         }

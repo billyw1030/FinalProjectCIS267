@@ -8,6 +8,7 @@ public class ArrowCollectable : MonoBehaviour
     public float maxRise;
     public float maxFall;
     public float wiggleSpeed;
+    public AudioClip pickup;
 
     //Variables
     float startingPosition;
@@ -57,21 +58,26 @@ public class ArrowCollectable : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            if(this.gameObject.CompareTag("PlatformArrow"))
+            
+            if (this.gameObject.CompareTag("PlatformArrow"))
             {
                 collision.gameObject.GetComponent<PlayerShoot>().setUnlockedPlatformArrows(true);
+                GetComponent<AudioSource>().PlayOneShot(pickup);
                 Destroy(this.gameObject);
             }
             else if(this.gameObject.CompareTag("ZiplineArrow"))
             {
                 collision.gameObject.GetComponent<PlayerShoot>().setUnlockedZiplineArrows(true);
+                GetComponent<AudioSource>().PlayOneShot(pickup);
                 Destroy(this.gameObject);
             }
             else if(this.gameObject.CompareTag("FireArrow"))
             {
                 collision.gameObject.GetComponent<PlayerShoot>().setUnlockedFireArrows(true);
+                GetComponent<AudioSource>().PlayOneShot(pickup);
                 Destroy(this.gameObject);
             }
+            
         }
     }
 

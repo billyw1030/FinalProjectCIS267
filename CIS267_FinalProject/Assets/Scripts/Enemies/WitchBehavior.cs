@@ -8,6 +8,10 @@ public class WitchBehavior : MonoBehaviour
     //Objects
     public GameObject potion;
 
+    //Sounds
+    public AudioClip WitchDeath;
+    public AudioClip PotionThrow;
+
     //Options
     public float shortWanderDistance;
     public float longWanderDistance;
@@ -52,6 +56,7 @@ public class WitchBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         player = GameObject.Find("Player");
         witchRigidBody = this.gameObject.GetComponent<Rigidbody2D>();
         witchAnimator = this.gameObject.transform.GetChild(0).GetComponent<Animator>();
@@ -113,7 +118,7 @@ public class WitchBehavior : MonoBehaviour
                         currentPotion.transform.localScale = new Vector3(-currentPotion.transform.localScale.x, currentPotion.transform.localScale.y, currentPotion.transform.localScale.z);
                         currentPotion.GetComponent<Rigidbody2D>().velocity = new Vector3(-potionVelocity, upwardVelocity, 0);
                     }
-
+                    GetComponent<AudioSource>().PlayOneShot(PotionThrow, 1);
                     hasShot = true;
                 }
                 if(attackTimer >= attackTime)
@@ -392,6 +397,7 @@ public class WitchBehavior : MonoBehaviour
             waiting = false;
             waitTimer = 0;
             witchAnimator.SetBool("isDead", true);
+            GetComponent<AudioSource>().PlayOneShot(WitchDeath, 1);
         }
     }
 
@@ -407,6 +413,8 @@ public class WitchBehavior : MonoBehaviour
             waiting = false;
             waitTimer = 0;
             witchAnimator.SetBool("isDead", true);
+            GetComponent<AudioSource>().PlayOneShot(WitchDeath, 1);
+
         }
         else if(collision.gameObject.CompareTag("WitchEnemy"))
         {

@@ -15,6 +15,8 @@ public class PlayerShoot : MonoBehaviour
     public float shootingDelay;
     public float animationLength;
     public float decisionDelay;
+    public AudioClip ShootArrow;
+    
 
 
     private Rigidbody2D playerRigidBody;
@@ -127,6 +129,7 @@ public class PlayerShoot : MonoBehaviour
                     {
                         //Shoot now!
                         currentArrow = Instantiate(selectedArrow);
+                        GetComponent<AudioSource>().PlayOneShot(ShootArrow, 1);
 
                         if (playerMovementScript.getIsFacingRight())
                         {

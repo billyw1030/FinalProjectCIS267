@@ -10,6 +10,7 @@ public class FinalPlayerMovement : MonoBehaviour
     public float lowJumpMultiplier;
     public float jumpForce;
     public float shootSlowDown;
+    public AudioClip JumpSound;
 
     //Components
     private Rigidbody2D playerRigidBody;
@@ -112,6 +113,7 @@ public class FinalPlayerMovement : MonoBehaviour
         {
             jumpColliderScript.setObjectsCollided(0);
             playerRigidBody.velocity = new Vector2(0, jumpForce);
+            GetComponent<AudioSource>().PlayOneShot(JumpSound, 1);
         }
 
     }

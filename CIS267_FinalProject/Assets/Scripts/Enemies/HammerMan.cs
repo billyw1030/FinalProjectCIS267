@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class HammerMan : MonoBehaviour
 {
+    public AudioClip HammerHit;
+    public AudioClip HammerDeath;
+    public AudioClip Swing1;
     private int hammerHealth = 2;
     private float speed = 0.5f;
     private Transform target;
@@ -17,6 +20,7 @@ public class HammerMan : MonoBehaviour
     private float distance;
     private float attackRange = 1.0f;
     public float farthestSpotPlayer = 3f;
+    
 
     //private float cnt = 0f;
 
@@ -55,6 +59,7 @@ public class HammerMan : MonoBehaviour
                     //Debug.Log("Time To Attack!");
                     HammerAnim.ResetTrigger("TriggerIsWalking");
                     HammerAnim.SetTrigger("TriggerTimeToAttack");
+                    
                 }
             }
             else if (distance <= -0.1 && distance >= -1 * farthestSpotPlayer)
@@ -70,6 +75,7 @@ public class HammerMan : MonoBehaviour
                     //Debug.Log("Time to Attack part 2!");
                     HammerAnim.ResetTrigger("TriggerIsWalking");
                     HammerAnim.SetTrigger("TriggerTimeToAttack");
+                    //GetComponent<AudioSource>().PlayOneShot(Swing1, 1);
                 }
             }
 
@@ -84,7 +90,10 @@ public class HammerMan : MonoBehaviour
         {
             Destroy(HammerManCollisions.gameObject);
             hammerHealth = hammerHealth - 1;
-
+            if(hammerHealth == 1)
+            {
+                GetComponent<AudioSource>().PlayOneShot(HammerHit, 1);
+            }
             if(hammerHealth == 0)
             {
                 HammerAnim.ResetTrigger("TriggerIsWalking");
@@ -93,6 +102,7 @@ public class HammerMan : MonoBehaviour
                 this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 //Destroy(GetComponent<BoxCollider2D>());
+                GetComponent<AudioSource>().PlayOneShot(HammerDeath, 1);
                 Destroy(this.gameObject, 3);
             }
         }
@@ -105,6 +115,7 @@ public class HammerMan : MonoBehaviour
                 HammerAnim.ResetTrigger("TriggerIsWalking");
                 HammerAnim.ResetTrigger("TriggerTimeToAttack");
                 HammerAnim.SetTrigger("TriggerIsDead");
+                GetComponent<AudioSource>().PlayOneShot(HammerDeath, 1);
                 Destroy(GetComponent<BoxCollider2D>());
                 Destroy(this.gameObject, 3);
         }
