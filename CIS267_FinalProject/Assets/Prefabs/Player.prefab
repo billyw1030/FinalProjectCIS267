@@ -241,7 +241,7 @@ MonoBehaviour:
   lowJumpMultiplier: 2.5
   jumpForce: 4
   shootSlowDown: 0.25
-  JumpSound: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+  JumpSound: {fileID: 8300000, guid: 0516b318d71b9f84fb9c6b61af9136c8, type: 3}
 --- !u!82 &-2738082368435776667
 AudioSource:
   m_ObjectHideFlags: 0
