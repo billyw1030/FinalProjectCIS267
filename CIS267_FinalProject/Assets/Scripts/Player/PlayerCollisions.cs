@@ -34,6 +34,10 @@ public class PlayerCollisions : MonoBehaviour
 
     }
 
+    public bool getKeyObtained()
+    {
+        return keyObtained;
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Key"))

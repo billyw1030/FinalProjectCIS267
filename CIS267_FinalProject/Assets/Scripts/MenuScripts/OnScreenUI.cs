@@ -8,6 +8,7 @@ public class OnScreenUI : MonoBehaviour
 {
     MainGameManagerScript gameManagerScript;
     PlayerShoot playerShootScript;
+    PlayerCollisions playerCollisions;
 
     //public Text livesText;
     private int lifeChecker;
@@ -28,6 +29,8 @@ public class OnScreenUI : MonoBehaviour
     private GameObject crossOne;
     private GameObject crossTwo;
 
+    private GameObject uiKey;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +50,8 @@ public class OnScreenUI : MonoBehaviour
 
         crossOne = GameObject.Find("CrossOne");
         crossTwo = GameObject.Find("CrossTwo");
+
+        uiKey = GameObject.Find("UIKey");
     }
 
     // Update is called once per frame
@@ -56,9 +61,21 @@ public class OnScreenUI : MonoBehaviour
         lifeChecker = gameManagerScript.getPlayerLives();
         arrowDisplayer(selectedArrow);
         lifeDisplayer(lifeChecker);
+        keyDisplayer();
        // livesText.text + = gameManagerScript.getPlayerLives().ToString();
     }
 
+    private void keyDisplayer()
+    {
+        if(playerCollisions.getKeyObtained() == true)
+        {
+            uiKey.SetActive(true);
+        }
+        else
+        {
+            uiKey.SetActive(false);
+        }
+    }
     private void arrowDisplayer(GameObject selectedArrow)
     {
 
