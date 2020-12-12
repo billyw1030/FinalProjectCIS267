@@ -184,6 +184,7 @@ public class PlayerCollisions : MonoBehaviour
     //Getters and Setters
     public void setDrop(bool d)
     {
+        this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
         drop = d;
