@@ -81,7 +81,7 @@ public class SirSheppardStateManager : MonoBehaviour
             currentTrigger = null;
             currentCoords = room3Enter;
             this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-            this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            //this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         }
 
         phasecounter++;
@@ -131,10 +131,8 @@ public class SirSheppardStateManager : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Spikes"))
         {
-            this.gameObject.GetComponent<Animator>().SetBool("isDead", true);
+            this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("isDead", true);
             isAlive = false;
-            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            this.enabled = false;
         }
         else if (collision.gameObject.CompareTag("Player"))
         {

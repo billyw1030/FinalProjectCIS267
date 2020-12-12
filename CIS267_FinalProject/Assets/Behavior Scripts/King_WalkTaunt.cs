@@ -38,7 +38,7 @@ public class King_WalkTaunt : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         sirSheppardRigidBody.velocity = new Vector2(0, sirSheppardRigidBody.velocity.y);
-        sirSheppardRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+        sirSheppardRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         stateManager.setForceRight(false);
         stateMachine.ResetTrigger("newRoom");
     }
