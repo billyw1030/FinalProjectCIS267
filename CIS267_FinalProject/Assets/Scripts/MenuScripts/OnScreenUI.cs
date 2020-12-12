@@ -61,21 +61,21 @@ public class OnScreenUI : MonoBehaviour
         lifeChecker = gameManagerScript.getPlayerLives();
         arrowDisplayer(selectedArrow);
         lifeDisplayer(lifeChecker);
-        keyDisplayer();
+        //keyDisplayer();
        // livesText.text + = gameManagerScript.getPlayerLives().ToString();
     }
 
-    private void keyDisplayer()
-    {
-        if(playerCollisions.getKeyObtained() == true)
-        {
-            uiKey.SetActive(true);
-        }
-        else
-        {
-            uiKey.SetActive(false);
-        }
-    }
+    //private void keyDisplayer()
+    //{
+    //    if(playerCollisions.getKeyObtained() == true)
+    //    {
+    //        uiKey.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        uiKey.SetActive(false);
+    //    }
+    //}
     private void arrowDisplayer(GameObject selectedArrow)
     {
 

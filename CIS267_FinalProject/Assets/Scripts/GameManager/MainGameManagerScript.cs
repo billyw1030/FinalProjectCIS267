@@ -41,7 +41,7 @@ public class MainGameManagerScript : MonoBehaviour
         hasZiplineArrows = false;
         hasFireArrows = false;
         currentLevel = "Level1";
-        cheatStatus = true;
+        cheatStatus = false;
         resetTimer = 0;
         playerHasDied = false;
         isVulnerable = true;
