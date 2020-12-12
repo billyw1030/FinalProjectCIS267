@@ -146,6 +146,10 @@ public class MenuNavigation : MonoBehaviour
     //    hideSettings();
     //}
 
+    public void winMenuButton()
+    {
+        gameManagerScript.loadMainMenu();
+    }
 
     public void loadGame()
     {

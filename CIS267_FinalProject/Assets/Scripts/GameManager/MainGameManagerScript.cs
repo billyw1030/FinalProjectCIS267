@@ -135,6 +135,10 @@ public class MainGameManagerScript : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         SceneManager.LoadScene(currentLevel);
     }
+    public void loadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
     public void playerLifeUp()
     {
