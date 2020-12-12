@@ -78,6 +78,10 @@ public class HammerMan : MonoBehaviour
                     //GetComponent<AudioSource>().PlayOneShot(Swing1, 1);
                 }
             }
+            else
+            {
+                this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            }
 
             
         }
@@ -99,6 +103,7 @@ public class HammerMan : MonoBehaviour
                 HammerAnim.ResetTrigger("TriggerIsWalking");
                 HammerAnim.ResetTrigger("TriggerTimeToAttack");
                 HammerAnim.SetTrigger("TriggerIsDead");
+                this.gameObject.GetComponent<HammerMan>().enabled = false;
                 this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 //Destroy(GetComponent<BoxCollider2D>());

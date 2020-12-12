@@ -49,6 +49,7 @@ public class MenuNavigation : MonoBehaviour
             //Time.timeScale = 1;
             //Debug.Log("Hide Menu");
             DeactivateMenu();
+            DeactivateSettingsMenu();
         }
 
         
@@ -79,7 +80,10 @@ public class MenuNavigation : MonoBehaviour
     public void DeactivateSettingsMenu()
     {
         pauseSettingsObject.SetActive(false);
-        pauseObjects.SetActive(true);
+        if (isPaused == true)
+        {
+            pauseObjects.SetActive(true);
+        }
     }
 
     public void cheatsEnabled()
