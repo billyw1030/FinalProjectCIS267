@@ -6,9 +6,13 @@ public class SirSheppardStateManager : MonoBehaviour
 {
     public GameObject startTrigger;
     public GameObject room1Trigger;
+    public GameObject room2Trigger;
 
     public Vector2 room1Enter;
     public Vector2 room1Exit;
+    public Vector2 room2Enter;
+    public Vector2 room2Exit;
+    public Vector2 room3Enter;
 
     private bool isAlive;
     private bool isFacingRight;
@@ -62,6 +66,23 @@ public class SirSheppardStateManager : MonoBehaviour
             currentTrigger = room1Trigger;
             currentCoords = room1Exit;
         }
+        else if (phasecounter == 2)
+        {
+            currentTrigger = null;
+            currentCoords = room2Enter;
+        }
+        else if (phasecounter == 3)
+        {
+            currentTrigger = room2Trigger;
+            currentCoords = room2Exit;
+        }
+        else if (phasecounter == 4)
+        {
+            currentTrigger = null;
+            currentCoords = room3Enter;
+            this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        }
 
         phasecounter++;
     }
@@ -104,5 +125,20 @@ public class SirSheppardStateManager : MonoBehaviour
     public void setForceRight(bool f)
     {
         forceRight = f;
-    }    
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Spikes"))
+        {
+            this.gameObject.GetComponent<Animator>().SetBool("isDead", true);
+            isAlive = false;
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            this.enabled = false;
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
+        }
+    }
 }

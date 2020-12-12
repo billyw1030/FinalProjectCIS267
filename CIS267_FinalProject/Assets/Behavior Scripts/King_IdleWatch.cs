@@ -16,8 +16,16 @@ public class King_IdleWatch : StateMachineBehaviour
         stateMachine = animator;
         sirSheppard = animator.gameObject.transform.parent.gameObject;
         stateManager = sirSheppard.GetComponent<SirSheppardStateManager>();
-        moveTrigger = stateManager.getTrigger().GetComponent<MoveTrigger>();
-        setupTrigger();
+        try
+        {
+            moveTrigger = stateManager.getTrigger().GetComponent<MoveTrigger>();
+            setupTrigger();
+        }
+        catch
+        {
+
+        }
+
         stateManager.setIsFighting(true);
     }
 

@@ -28,7 +28,7 @@ public class King_WalkTaunt : StateMachineBehaviour
     {
         timer += Time.deltaTime;
         sirSheppardRigidBody.velocity = new Vector2(2, sirSheppardRigidBody.velocity.y);
-        if(timer >= 4)
+        if(timer >= 0.5)
         {
             stateMachine.SetTrigger("newRoom");
         }
