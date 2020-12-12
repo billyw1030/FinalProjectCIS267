@@ -924,8 +924,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -239, y: -257}
-  m_SizeDelta: {x: 229.16666, y: 70.55143}
+  m_AnchoredPosition: {x: -32.4, y: -257}
+  m_SizeDelta: {x: 332.45016, y: 70.55143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &477240931
 MonoBehaviour:
@@ -963,7 +963,7 @@ MonoBehaviour:
   m_Text: 'Numpad:   1 - Level 1       2 - Level 2
 
     3 - Level 3        4 - Add
-    Life'
+    Life        5  - Invulnerability'
 --- !u!222 &477240932
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1086,7 +1086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 503.49997, y: 258, z: -10}
+  m_LocalPosition: {x: 520, y: 95.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1790023482}
@@ -1821,6 +1821,10 @@ PrefabInstance:
       value: MenuPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 1901685630289745707, guid: 9f30a0c0c0bdf2f45a851c74ecbcc90e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901685630618031742, guid: 9f30a0c0c0bdf2f45a851c74ecbcc90e, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -2861,7 +2865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864150355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 503.49997, y: 258, z: -10}
+  m_LocalPosition: {x: 520, y: 95.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1424598478}

@@ -116,8 +116,27 @@ public class PlayerCollisions : MonoBehaviour
             }
         }
         else
-        { 
-            if (collision.gameObject.CompareTag("HammerEnemy"))
+        { //physics2d.ignore
+            if(gameManagerScript.getIsVulnerable() == false)
+            {
+                if(collision.gameObject.CompareTag("HammerEnemy"))
+                {
+                    Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
+                }
+                else if(collision.gameObject.CompareTag("WitchEnemy"))
+                {
+                    Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
+                }
+                else if (collision.gameObject.CompareTag("Life"))
+                {
+                    gameManagerScript.playerLifeUp();
+
+                    Destroy(collision.gameObject);
+                    GetComponent<AudioSource>().PlayOneShot(extraheart);
+                }
+
+            }
+            else if (collision.gameObject.CompareTag("HammerEnemy") && gameManagerScript.getIsVulnerable() == true)
             {
                 
                 gameManagerScript.playerDeath();
@@ -137,7 +156,7 @@ public class PlayerCollisions : MonoBehaviour
                 SceneManager.LoadScene(scene.name);
                 */
             }
-            else if (collision.gameObject.CompareTag("WitchEnemy"))
+            else if (collision.gameObject.CompareTag("WitchEnemy") && gameManagerScript.getIsVulnerable() == true)
             {
                 //GetComponent<AudioSource>().PlayOneShot(PlayerDeath);
                 gameManagerScript.playerDeath();

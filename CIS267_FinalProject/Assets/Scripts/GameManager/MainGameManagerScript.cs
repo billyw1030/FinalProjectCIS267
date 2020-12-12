@@ -15,6 +15,7 @@ public class MainGameManagerScript : MonoBehaviour
     private string currentLevel;
     private float resetTimer;
     private bool playerHasDied;
+    private bool isVulnerable;
 
 
     //Public Prefab Objects
@@ -43,6 +44,7 @@ public class MainGameManagerScript : MonoBehaviour
         cheatStatus = true;
         resetTimer = 0;
         playerHasDied = false;
+        isVulnerable = true;
 
         //Temp
         playerLives = startingPlayerLives;
@@ -93,6 +95,10 @@ public class MainGameManagerScript : MonoBehaviour
     public bool getHasFireArrows()
     {
         return hasFireArrows;
+    }
+    public bool getIsVulnerable()
+    {
+        return isVulnerable;
     }
 
     //Setters
@@ -248,8 +254,12 @@ public class MainGameManagerScript : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            Debug.Log("life Added");
+            //Debug.Log("life Added");
             playerLives += 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            isVulnerable = !isVulnerable;
         }
     }
 
