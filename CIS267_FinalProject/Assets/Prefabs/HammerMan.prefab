@@ -44,7 +44,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8563642915396021787}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 59fa74ed6747fff469cf974827f34536, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -97,7 +97,6 @@ MonoBehaviour:
   HammerHit: {fileID: 8300000, guid: 9f8b8c755ea3f0a488cef0df62a7e7ef, type: 3}
   HammerDeath: {fileID: 8300000, guid: d182d334785020545b6d0940eada2733, type: 3}
   Swing1: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
-  Swing2: {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
   farthestSpotPlayer: 3
 --- !u!82 &-2984285597441317002
 AudioSource:
