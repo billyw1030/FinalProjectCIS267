@@ -143,6 +143,11 @@ public class PlayerCollisions : MonoBehaviour
                     Destroy(collision.gameObject);
                     GetComponent<AudioSource>().PlayOneShot(extraheart);
                 }
+                else if (collision.gameObject.CompareTag("Dog"))
+                {
+                    gameManagerScript.setCurrentLevel("WinScreen");
+                    gameManagerScript.startCurrentLevel();
+                }
 
             }
             else if (collision.gameObject.CompareTag("HammerEnemy") && gameManagerScript.getIsVulnerable() == true)
@@ -191,14 +196,14 @@ public class PlayerCollisions : MonoBehaviour
 
 
             }
-            else if (collision.gameObject.CompareTag("Life"))
+            else if (collision.gameObject.CompareTag("Life") && gameManagerScript.getIsVulnerable() == true)
             {
                 gameManagerScript.playerLifeUp();
               
                 Destroy(collision.gameObject);
                 GetComponent<AudioSource>().PlayOneShot(extraheart);
             }
-            else if (collision.gameObject.CompareTag("Dog"))
+            else if (collision.gameObject.CompareTag("Dog") && gameManagerScript.getIsVulnerable() == true)
             {
                 gameManagerScript.setCurrentLevel("WinScreen");
                 gameManagerScript.startCurrentLevel();
