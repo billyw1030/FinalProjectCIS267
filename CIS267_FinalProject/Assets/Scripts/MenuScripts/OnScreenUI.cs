@@ -52,7 +52,7 @@ public class OnScreenUI : MonoBehaviour
         crossOne = GameObject.Find("CrossOne");
         crossTwo = GameObject.Find("CrossTwo");
 
-
+        //uiKey.SetActive(false);
     }
 
     // Update is called once per frame
@@ -63,13 +63,13 @@ public class OnScreenUI : MonoBehaviour
         keyObtained = GameObject.Find("Player").GetComponent<PlayerCollisions>().getKeyObtained();
         arrowDisplayer(selectedArrow);
         lifeDisplayer(lifeChecker);
-        keyDisplayer();
+        //keyDisplayer();
        // livesText.text + = gameManagerScript.getPlayerLives().ToString();
     }
 
-    private void keyDisplayer()
+    public void keyDisplayer(bool checker)
     {
-        if(keyObtained == true)//playerCollisions.getKeyObtained() == true)
+        if(checker == true)//playerCollisions.getKeyObtained() == true)
         {
             uiKey.SetActive(true);
         }

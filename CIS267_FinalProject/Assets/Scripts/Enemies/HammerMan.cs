@@ -90,7 +90,7 @@ public class HammerMan : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D HammerManCollisions)
     {
-        if(HammerManCollisions.gameObject.CompareTag("Arrow"))
+        if(HammerManCollisions.gameObject.CompareTag("Arrow") || HammerManCollisions.gameObject.CompareTag("PlatformArrow") || HammerManCollisions.gameObject.CompareTag("ZiplineArrow") || HammerManCollisions.gameObject.CompareTag("FireArrow"))
         {
             Destroy(HammerManCollisions.gameObject);
             hammerHealth = hammerHealth - 1;

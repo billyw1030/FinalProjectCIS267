@@ -9,6 +9,7 @@ public class PlayerCollisions : MonoBehaviour
     //Objects
     MainGameManagerScript gameManagerScript;
     LifeUp lifeScript;
+    OnScreenUI onScreenUI;
 
     public AudioClip PlayerDeath;
     public AudioClip PotionBreak;
@@ -25,6 +26,7 @@ public class PlayerCollisions : MonoBehaviour
     {
         gameManagerScript = GameObject.Find("GameManager").GetComponent<MainGameManagerScript>();
         lifeScript = GameObject.Find("GameManager").GetComponent<LifeUp>();
+        onScreenUI = GameObject.Find("OnScreenUI").GetComponent<OnScreenUI>();
         drop = false;
     }
 
@@ -46,6 +48,8 @@ public class PlayerCollisions : MonoBehaviour
             keyObtained = true;
             //Debug.Log("Key Obtained");
             Destroy(other.gameObject);
+            onScreenUI.keyDisplayer(keyObtained);
+
         }
         else if (other.gameObject.CompareTag("Door") && keyObtained == true)
         {
