@@ -14,6 +14,10 @@ public class SirSheppardStateManager : MonoBehaviour
     public Vector2 room2Exit;
     public Vector2 room3Enter;
 
+    public GameObject bossDoor2;
+    public GameObject bossDoor3;
+    public GameObject bossDoor4;
+
     private bool isAlive;
     private bool isFacingRight;
     private bool isFighting;
@@ -68,6 +72,7 @@ public class SirSheppardStateManager : MonoBehaviour
         }
         else if (phasecounter == 2)
         {
+            bossDoor2.SetActive(false);
             currentTrigger = null;
             currentCoords = room2Enter;
         }
@@ -78,6 +83,7 @@ public class SirSheppardStateManager : MonoBehaviour
         }
         else if (phasecounter == 4)
         {
+            bossDoor3.SetActive(false);
             currentTrigger = null;
             currentCoords = room3Enter;
             this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
@@ -133,6 +139,7 @@ public class SirSheppardStateManager : MonoBehaviour
         {
             this.gameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("isDead", true);
             isAlive = false;
+            bossDoor4.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
