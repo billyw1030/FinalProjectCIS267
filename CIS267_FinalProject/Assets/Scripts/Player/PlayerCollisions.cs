@@ -77,7 +77,7 @@ public class PlayerCollisions : MonoBehaviour
             
             
         }
-        else if (other.gameObject.CompareTag("Potion"))
+        else if (other.gameObject.CompareTag("Potion") && gameManagerScript.getIsVulnerable() == true)
         {
            
             gameManagerScript.playerDeath();
