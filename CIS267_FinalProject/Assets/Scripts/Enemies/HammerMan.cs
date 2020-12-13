@@ -46,9 +46,11 @@ public class HammerMan : MonoBehaviour
         if (isAlive)
         {
             distance = getPlayerDistance();
+            HammerAnim.SetTrigger("TriggerIdle");
             if (distance >= 0.1 && distance <= farthestSpotPlayer)
             {
                 //Debug.Log("Chasing from Left");
+                HammerAnim.ResetTrigger("TriggerIdle");
                 HammerAnim.SetTrigger("TriggerIsWalking");
                 this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
                 //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
@@ -61,10 +63,15 @@ public class HammerMan : MonoBehaviour
                     HammerAnim.SetTrigger("TriggerTimeToAttack");
                     
                 }
+                else
+                {
+                    HammerAnim.ResetTrigger("TriggerTimeToAttack");
+                }
             }
             else if (distance <= -0.1 && distance >= -1 * farthestSpotPlayer)
             {
                 //Debug.Log("Chasing from Right");
+                HammerAnim.ResetTrigger("TriggerIdle");
                 HammerAnim.SetTrigger("TriggerIsWalking");
                 this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(speed * -1, 0);
                 //enemyRigidBody.transform.localScale = new Vector3(-1, 1, 1);
@@ -77,10 +84,17 @@ public class HammerMan : MonoBehaviour
                     HammerAnim.SetTrigger("TriggerTimeToAttack");
                     //GetComponent<AudioSource>().PlayOneShot(Swing1, 1);
                 }
+                else
+                {
+                    HammerAnim.ResetTrigger("TriggerTimeToAttack");
+                }
             }
-            else
+            else if(Mathf.Abs(distance) > Mathf.Abs(farthestSpotPlayer))
             {
+                HammerAnim.ResetTrigger("TriggerIsWalking");
+                HammerAnim.SetTrigger("TriggerIdle");
                 this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+
             }
 
             

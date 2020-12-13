@@ -188,6 +188,7 @@ public class PlayerCollisions : MonoBehaviour
             else if (collision.gameObject.CompareTag("Dog"))
             {
                 gameManagerScript.setCurrentLevel("WinScreen");
+                gameManagerScript.startCurrentLevel();
             }
 
         }

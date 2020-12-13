@@ -9620,7 +9620,7 @@ GameObject:
   - component: {fileID: 1041241725}
   m_Layer: 0
   m_Name: spr_VillageOneWayTileSetNoBkg_strip_1 (17)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11008,6 +11008,10 @@ PrefabInstance:
     - target: {fileID: 4983334356005891386, guid: 876862adeaf451643b46a2126c94a9db, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710140174676354958, guid: 876862adeaf451643b46a2126c94a9db, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6556956235806267571, guid: 876862adeaf451643b46a2126c94a9db, type: 3}
       propertyPath: m_Name
@@ -14469,7 +14473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578177171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.311325, y: -3.321218, z: -10}
+  m_LocalPosition: {x: -7.297531, y: -3.3182597, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 776285285}
@@ -15282,7 +15286,7 @@ GameObject:
   - component: {fileID: 1717565682}
   m_Layer: 0
   m_Name: spr_VillageOneWayTileSetNoBkg_strip_1 (16)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15300,7 +15304,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.011390977, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15311,7 +15315,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.35555556, y: 0.15555556}
+  m_Size: {x: 0.33277357, y: 0.15555556}
   m_EdgeRadius: 0
 --- !u!212 &1717565683
 SpriteRenderer:
