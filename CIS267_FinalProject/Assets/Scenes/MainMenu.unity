@@ -924,8 +924,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32.4, y: -257}
-  m_SizeDelta: {x: 332.45016, y: 70.55143}
+  m_AnchoredPosition: {x: 89.3, y: -257}
+  m_SizeDelta: {x: 393.32217, y: 70.55143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &477240931
 MonoBehaviour:
@@ -960,10 +960,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Numpad:   1 - Level 1       2 - Level 2
-
-    3 - Level 3        4 - Add
-    Life        5  - Invulnerability'
+  m_Text: "Numpad:   1 - Level 1       2 - Level 2     3 - Level 3        \n4 - Add
+    Life        5  - Invulnerability       6 - Boss Checkpoint"
 --- !u!222 &477240932
 CanvasRenderer:
   m_ObjectHideFlags: 0
