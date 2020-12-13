@@ -36,6 +36,7 @@ TagManager:
   - FourthPointer
   - ThirdPointer
   - SecondPointer
+  - Dog
   layers:
   - Default
   - TransparentFX

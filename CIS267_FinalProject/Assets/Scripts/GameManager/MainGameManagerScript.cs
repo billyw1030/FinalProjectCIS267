@@ -149,7 +149,7 @@ public class MainGameManagerScript : MonoBehaviour
     public void playerLifeUp()
     {
         playerLives = playerLives + 1;
-        Debug.Log("Player Life Up! Player now has " + playerLives + " lives remaining");
+        //Debug.Log("Player Life Up! Player now has " + playerLives + " lives remaining");
     }
 
         //Gamefunctions

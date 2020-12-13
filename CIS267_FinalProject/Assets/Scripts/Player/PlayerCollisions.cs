@@ -15,7 +15,7 @@ public class PlayerCollisions : MonoBehaviour
     public AudioClip Swing1;
     public AudioClip extraheart;
 
-    private bool keyObtained;
+    private bool keyObtained = false;
     private bool drop;
     private float hit = 0;
     
@@ -26,7 +26,6 @@ public class PlayerCollisions : MonoBehaviour
         gameManagerScript = GameObject.Find("GameManager").GetComponent<MainGameManagerScript>();
         lifeScript = GameObject.Find("GameManager").GetComponent<LifeUp>();
         drop = false;
-        keyObtained = false;
     }
 
     // Update is called once per frame
@@ -35,10 +34,11 @@ public class PlayerCollisions : MonoBehaviour
 
     }
 
-    //public bool getKeyObtained()
-    //{
-    //    return keyObtained;
-    //}
+    public bool getKeyObtained()
+    {
+        return keyObtained;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Key"))
@@ -180,6 +180,10 @@ public class PlayerCollisions : MonoBehaviour
               
                 Destroy(collision.gameObject);
                 GetComponent<AudioSource>().PlayOneShot(extraheart);
+            }
+            else if (collision.gameObject.CompareTag("Dog"))
+            {
+                gameManagerScript.setCurrentLevel("WinScreen");
             }
 
         }
