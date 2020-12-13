@@ -60,6 +60,10 @@ public class MainGameManagerScript : MonoBehaviour
         {
             cheatSceneTester();
         }
+        else
+        {
+            isVulnerable = true;
+        }
 
 
         if(playerHasDied)
