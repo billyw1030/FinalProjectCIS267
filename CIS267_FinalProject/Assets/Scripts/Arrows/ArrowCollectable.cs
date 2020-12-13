@@ -56,7 +56,12 @@ public class ArrowCollectable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject == GameObject.Find("Player").transform.GetChild(1))
+        {
+            //Wrong player collider
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
+        }
+        else if(collision.gameObject.CompareTag("Player"))
         {
             
             if (this.gameObject.CompareTag("PlatformArrow"))
