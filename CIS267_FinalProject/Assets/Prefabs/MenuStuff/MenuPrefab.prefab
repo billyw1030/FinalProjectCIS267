@@ -2345,8 +2345,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000091553, y: 186}
-  m_SizeDelta: {x: 292.1156, y: 38.875}
+  m_AnchoredPosition: {x: 168.5, y: 146.3}
+  m_SizeDelta: {x: 400.46033, y: 65.32277}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2313877211773318016
 CanvasRenderer:
@@ -2389,4 +2389,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '- 1,2,3,4 to Swap  Arrows or Shift/X to Cycle'
+  m_Text: '- 1,2,3,4  to  Swap  Arrows  or  Shift/X  to  Cycle'
