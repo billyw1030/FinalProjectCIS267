@@ -14,6 +14,8 @@ public class GolemEnemy : MonoBehaviour
     public GameObject box;
     public AudioClip Fists;
     public AudioClip SDeath;
+    private Rigidbody2D golemRigidBody;
+
 
 
 
@@ -69,6 +71,9 @@ public class GolemEnemy : MonoBehaviour
         {
             Destroy(box);
             GolemAnim.SetBool("IsDead", true);
+            this.gameObject.GetComponent<GolemEnemy>().enabled = false;
+            this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<AudioSource>().PlayOneShot(SDeath, 1);
             //Destroy(gameObject.GetComponent<BoxCollider2D>());
 
