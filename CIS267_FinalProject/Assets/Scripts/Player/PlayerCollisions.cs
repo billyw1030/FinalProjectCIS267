@@ -178,6 +178,19 @@ public class PlayerCollisions : MonoBehaviour
 
 
             }
+            else if (collision.gameObject.CompareTag("Spikes") && gameManagerScript.getIsVulnerable() == true)
+            {
+                //GetComponent<AudioSource>().PlayOneShot(PlayerDeath);
+                gameManagerScript.playerDeath();
+                if (hit == 0)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(PlayerDeath);
+                    hit++;
+                }
+
+
+
+            }
             else if (collision.gameObject.CompareTag("Life"))
             {
                 gameManagerScript.playerLifeUp();
@@ -190,6 +203,7 @@ public class PlayerCollisions : MonoBehaviour
                 gameManagerScript.setCurrentLevel("WinScreen");
                 gameManagerScript.startCurrentLevel();
             }
+            
 
         }
 
