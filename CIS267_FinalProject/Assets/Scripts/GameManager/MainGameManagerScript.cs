@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -260,6 +261,12 @@ public class MainGameManagerScript : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Keypad5))
         {
             isVulnerable = !isVulnerable;
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad6) && currentLevel == "Level3")
+        {
+            GameObject.Find("Player").transform.position = new Vector2(111.48f, 0.91f);
+            hasFireArrows = true;
+            GameObject.Find("Player").GetComponent<PlayerShoot>().setUnlockedFireArrows(true);
         }
     }
 
